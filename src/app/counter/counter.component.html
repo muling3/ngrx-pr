@@ -1,0 +1,29 @@
+<div class="w-11/12 md:w-1/2 h-96 flex flex-col justify-center flex-wrap items-center mx-auto px-4 rounded shadow-2xl dark:bg-zinc-700">
+  <div class="text-center dark:text-slate-100">
+    Current Count: <span class="text-3xl text-red-600">{{ count$ | async }}</span>
+  </div>
+  <div class="flex justify-around items-center flex-wrap mt-6">
+    <button
+      class="bg-sky-600 text-white rounded px-2 text-center mr-4"
+      (click)="increment()"
+    >
+      Increment
+    </button>
+
+    <button  class="bg-sky-600 text-white rounded text-center px-2 mr-4" (click)="decrement()">Decrement</button>
+
+    <button  class="bg-sky-600 text-white rounded my-2 sm:my-0 md:my-0 px-2 text-center" (click)="reset()">Reset</button>
+  </div>
+  <div class="flex justify-center items-center my-4">
+    <input type="number" min="1" max="1000" class="transition-all duration-1000 ease-linear w-1/2 rounded p-2 text-[14px] text-pink-700 border-2" #amount/>
+    <input (click)="incrementByValue()" type="submit" value="Add Amount" class="bg-amber-500 text-white p-2 ml-4 rounded cursor-pointer">
+  </div>
+
+  <div class="flex justify-center items-center my-4">
+    <button class="bg-sky-600 text-white p-4" (click)="openModal(modal)">Open Modal</button>
+  </div>
+</div>
+
+<ng-template #modal>
+  <div>Testing Custom Modal</div>
+</ng-template>
