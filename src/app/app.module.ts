@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { AuthGuard } from './services/auth.guard';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AuthGuard } from './services/auth.guard';
     NotFoundComponent,
     SpinnerComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,12 @@ import { AuthGuard } from './services/auth.guard';
         component: LoginComponent,
         pathMatch: 'full',
         title: 'auth',
+      },
+      {
+        path: 'register',
+        component: RegisterComponent,
+        pathMatch: 'full',
+        title: 'Register',
       },
       {
         path: 'blog/:id',

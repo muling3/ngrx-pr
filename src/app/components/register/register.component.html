@@ -1,0 +1,178 @@
+<div
+  class="w-screen md:w-1/2 min-h-screen p-1 md:p-2 mx-auto bg-red grid place-items-center"
+>
+  <div
+    class="w-11/12 md:w-3/4 p-2 md:p-4 shadow-sm shadow-slate-400 grid place-items-center"
+  >
+    <form
+      class="p-0 md:p-3 w-full flex flex-col justify-center items-start"
+      (ngSubmit)="register(registerForm.value)"
+      #registerForm="ngForm"
+      novalidate
+    >
+      <!-- fullname form group -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <label for="fullname">Full name</label>
+        <input
+          type="text"
+          name="fullname"
+          class="w-full px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white"
+          [ngClass]="{'border-red-400': fullName.touched && fullName.invalid}"
+          placeholder="Full name"
+          required
+          minlength="3"
+          maxlength="18"
+          ngModel
+          #fullName="ngModel"
+        />
+        <div
+          *ngIf="fullName.touched && fullName.invalid && fullName.errors"
+          class="mt-0"
+        >
+          <small *ngIf="fullName.errors['required']" class="text-red-500">
+            FullName is required
+          </small>
+          <small *ngIf="fullName.errors['minlength']" class="text-red-500">
+            FullName is too short
+          </small>
+          <small *ngIf="fullName.errors['maxlength']" class="text-red-500">
+            FullName is too long
+          </small>
+        </div>
+      </div>
+
+      <!-- username form group -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          class="w-full px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white"
+          [ngClass]="{'border-red-400': username.touched && username.invalid}"
+          placeholder="Username"
+          required
+          minlength="3"
+          maxlength="10"
+          ngModel
+          #username="ngModel"
+        />
+        <div
+          *ngIf="username.touched && username.invalid && username.errors"
+          class="mt-0"
+        >
+          <small *ngIf="username.errors['required']" class="text-red-500">
+            Username is required
+          </small>
+          <small *ngIf="username.errors['minlength']" class="text-red-500">
+            Username is too short
+          </small>
+          <small *ngIf="username.errors['maxlength']" class="text-red-500">
+            Username is too long
+          </small>
+        </div>
+      </div>
+
+      <!-- email input field -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          class="w-full px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white"
+          [ngClass]="{'border-red-400': email.touched && email.invalid}"
+          placeholder="Email"
+          email
+          required
+          ngModel
+          #email="ngModel"
+        />
+        <div
+          *ngIf="email.touched && email.invalid && email.errors"
+          class="invalid-feedback"
+        >
+          <small *ngIf="email.errors['required']" class="text-red-500">
+            Email is required
+          </small>
+          <small *ngIf="email.errors['email']" class="text-red-500">
+            Email is invalid
+          </small>
+        </div>
+      </div>
+
+      <!-- password form group -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          class="w-full px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white"
+          [ngClass]="{'border-red-400': password.touched && password.invalid}"
+          placeholder="Password"
+          minlength="6"
+          maxlength="10"
+          required
+          ngModel
+          #password="ngModel"
+        />
+        <div
+          *ngIf="password.touched && password.invalid && password.errors"
+          class="invalid-feedback"
+        >
+          <small *ngIf="password.errors['required']" class="text-red-500">
+            Password is required
+          </small>
+          <small *ngIf="password.errors['minlength']" class="text-red-500">
+            Password is too short [ 6 - 10]
+          </small>
+          <small *ngIf="password.errors['maxlength']" class="text-red-500">
+            Password is too long [6 - 10]
+          </small>
+        </div>
+      </div>
+
+      <!-- confirm password form group -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <label for="password">Confirm Password</label>
+        <input
+          type="password"
+          name="cnf-password"
+          class="w-full px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white"
+          [ngClass]="{'border-red-400': cnfPassword.touched && cnfPassword.invalid}"
+          placeholder="Confirm password"
+          minlength="6"
+          maxlength="10"
+          required
+          ngModel
+          #cnfPassword="ngModel"
+        />
+        <div
+          *ngIf="cnfPassword.touched && cnfPassword.invalid && cnfPassword.errors"
+          class="invalid-feedback"
+        >
+          <small *ngIf="cnfPassword.errors['required']" class="text-red-500">
+            Confirmation password is required
+          </small>
+          <small *ngIf="cnfPassword.errors['minlength']" class="text-red-500">
+            Confirmation password is too short [ 6 - 10]
+          </small>
+          <small *ngIf="cnfPassword.errors['maxlength']" class="text-red-500">
+            Confirmation password is too long [6 - 10]
+          </small>
+          <small *ngIf="cnfPassword.value != password.value" class="text-red-500">
+            Passwords do not match
+          </small>
+        </div>
+      </div>
+
+      <!-- submit button -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <input
+          type="submit"
+          value="REGISTER"
+          [disabled]="registerForm.invalid"
+          class="self-center w-1/2 mt-2 p-2 rounded-sm text-white bg-sky-500 cursor-pointer"
+        />
+      </div>
+    </form>
+  </div>
+</div>
