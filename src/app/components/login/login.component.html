@@ -1,11 +1,80 @@
-<div class="w-screen md:w-1/2 min-h-screen p-1 md:p-2 mx-auto bg-red grid place-items-center">
-  <div class="w-11/12 md:w-3/4 p-2 md:p-4 shadow-sm shadow-slate-400 grid place-items-center">
-    <form class="p-0 md:p-3 w-full flex flex-col justify-center items-start" (submit)="login(loginForm.value)" #loginForm="ngForm">
-      <label for="username">Username</label>
-      <input type="text" name="username" class="w-full my-3 px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white" placeholder="Username" required ngModel>
-      <label for="email">Email</label>
-      <input type="email" name="email" class="w-full my-3 px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white" placeholder="Email" email required ngModel>
-      <input type="submit" value="LOGIN" [disabled]="loginForm.invalid" class="self-center w-1/2 mt-2 p-2 rounded-sm text-white bg-sky-500 cursor-pointer">
+<div
+  class="w-screen md:w-1/2 min-h-screen p-1 md:p-2 mx-auto bg-red grid place-items-center"
+>
+  <div
+    class="w-11/12 md:w-3/4 p-2 md:p-4 shadow-sm shadow-slate-400 grid place-items-center"
+  >
+    <form
+      class="p-0 md:p-3 w-full flex flex-col justify-center items-start"
+      (ngSubmit)="login(loginForm.value)"
+      #loginForm="ngForm"
+      novalidate
+    >
+      <!-- username form group -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          class="w-full px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white"
+          placeholder="Username"
+          required
+          minlength="3"
+          maxlength="10"
+          ngModel
+          #username="ngModel"
+        />
+        <div
+          *ngIf="username.touched && username.invalid && username.errors"
+          class="mt-0"
+        >
+          <small *ngIf="username.errors['required']" class="text-red-500">
+            Username is required
+          </small>
+          <small *ngIf="username.errors['minlength']" class="text-red-500">
+            Username is too short
+          </small>
+          <small *ngIf="username.errors['maxlength']" class="text-red-500">
+            Username is too long
+          </small>
+        </div>
+      </div>
+
+      <!-- email input field -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          class="w-full px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white"
+          placeholder="Email"
+          email
+          required
+          ngModel
+          #email="ngModel"
+        />
+        <div
+          *ngIf="email.touched && email.invalid && email.errors"
+          class="invalid-feedback"
+        >
+          <small *ngIf="email.errors['required']" class="text-red-500">
+            Email is required
+          </small>
+          <small *ngIf="email.errors['email']" class="text-red-500">
+            Email is invalid
+          </small>
+        </div>
+      </div>
+
+      <!-- submit button -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <input
+          type="submit"
+          value="LOGIN"
+          [disabled]="loginForm.invalid"
+          class="self-center w-1/2 mt-2 p-2 rounded-sm text-white bg-sky-500 cursor-pointer"
+        />
+      </div>
     </form>
   </div>
 </div>
