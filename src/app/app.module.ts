@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { BlogsComponent } from './components/blogs/blogs.component';
 import { BlogItemComponent } from './components/blog-item/blog-item.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     BlogsComponent,
     BlogItemComponent,
     NotFoundComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

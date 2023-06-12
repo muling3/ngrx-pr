@@ -12,6 +12,8 @@ import { BlogService } from 'src/app/services/blog.service';
 export class BlogItemComponent {
   //initialising blog
   blog: Post | undefined;
+  errorMsg: string | undefined;
+  loading: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -19,16 +21,27 @@ export class BlogItemComponent {
   ) {}
 
   ngOnInit(): void {
-    //subscribing to activated route
-    this.activatedRoute.params.subscribe({
-      next: (p) => {
-        //get the blog
-        this.loadBlog(p['id'])
-      },
-      error: (err) => {
-        console.log('Error occurred ' + err);
-      },
-    });
+    this.loading = true;
+    setTimeout(() => {
+      //subscribing to activated route
+      this.activatedRoute.params.subscribe({
+        next: (p) => {
+          //set loading to false
+          this.loading = false;
+
+          //get the blog
+          this.loadBlog(p['id']);
+        },
+        error: (err: Error) => {
+          //set loading to false
+          this.loading = false;
+
+          // set error
+          this.errorMsg = 'Error occurred' + err.message;
+          console.log('Error occurred ' + err);
+        },
+      });
+    }, 500);
   }
 
   loadBlog(blogId: number): void {
@@ -36,7 +49,14 @@ export class BlogItemComponent {
       next: (blog) => {
         this.blog = blog;
       },
-      error: (err) => console.log('error occurred ' + err),
+      error: (err) => {
+        //set loading to false
+        this.loading = false;
+
+        // set error
+        this.errorMsg = 'Error occurred' + err.message;
+        console.log(err);
+      },
     });
   }
 }

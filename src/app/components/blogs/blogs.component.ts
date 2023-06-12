@@ -13,28 +13,43 @@ export class BlogsComponent implements OnInit {
   blogs: Post[] = [];
   users: User[] = [];
 
+  loading: boolean = false;
+  errorMsg: string | undefined;
+
   constructor(
     private blogService: BlogService,
     private userService: UserService
   ) {}
 
   ngOnInit(): void {
-    //getting all blogs
-    this.loadAllBlogs();
+    this.loading = true;
+    setTimeout(() => {
+      //getting all blogs
+      this.loadAllBlogs();
 
-    //get all users
-    this.loadAllUsers();
+      //get all users
+      this.loadAllUsers();
+    }, 600);
   }
 
   loadAllBlogs(): void {
     this.blogService.getAllBlogs().subscribe({
       next: (data) => {
+        //set loading to false
+        this.loading = false;
+
         this.blogs = data;
 
         //shuffle blogs
         this.blogsShuffler(this.blogs);
       },
-      error: (err) => {
+      error: (err: Error) => {
+        //set loading to false
+        this.loading = false;
+
+        // set error
+        this.errorMsg = 'Error occurred' + err.message;
+
         console.log('error occurred ' + err);
       },
     });
