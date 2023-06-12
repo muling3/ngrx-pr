@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
@@ -19,6 +19,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { ToastrModule } from 'ngx-toastr';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -39,13 +40,25 @@ import { ToastrModule } from 'ngx-toastr';
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
     RouterModule.forRoot([
-      { path: '', component: BlogsComponent, pathMatch: 'full', title: 'home' },
-      { path: 'auth', component: LoginComponent, pathMatch: 'full', title: 'auth' },
+      {
+        path: '',
+        component: BlogsComponent,
+        pathMatch: 'full',
+        title: 'home',
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'auth',
+        component: LoginComponent,
+        pathMatch: 'full',
+        title: 'auth',
+      },
       {
         path: 'blog/:id',
         component: BlogItemComponent,
         pathMatch: 'full',
         title: 'item',
+        canActivate: [AuthGuard],
       },
       { path: '**', component: NotFoundComponent, title: 'Not found' },
     ]),
