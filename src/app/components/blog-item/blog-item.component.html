@@ -1,1 +1,9 @@
-<p>blog-item works!</p>
+<div class="w-3/4 md:w-1/4 mx-auto my-10 grid place-items-center">
+    <div *ngIf="blog; else invalidId" class="p-8 bg-yellow-50 shadow-lg shadow-gray-400 rounded-md flex items-center justify-center flex-col">
+        <p> <span class="font-bold">Title: </span> {{ blog.title }} </p>
+        <p> <span class="font-bold">Body: </span> {{ blog.body }} </p>
+    </div>
+    <ng-template #invalidId>
+        <p>Blog does not exist</p>
+    </ng-template>
+</div>

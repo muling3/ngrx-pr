@@ -30,9 +30,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
     RouterModule.forRoot([
-      { path: '', component: BlogsComponent, pathMatch: "full" },
-      { path: 'blog/:id', component: BlogItemComponent, pathMatch: "full" },
-      { path: '**', component: NotFoundComponent },
+      { path: '', component: BlogsComponent, pathMatch: "full", title: "home" },
+      { path: 'blog/:id', component: BlogItemComponent, pathMatch: "full", title: "item" },
+      { path: '**', component: NotFoundComponent, title: "Not found" },
     ]),
   ],
   providers: [],

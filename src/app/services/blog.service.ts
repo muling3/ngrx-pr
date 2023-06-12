@@ -14,4 +14,8 @@ export class BlogService {
   getAllBlogs(): Observable<Post[]> {
     return this.http.get<Post[]>(this.API_URL + '/posts');
   }
+
+  getBlog(blogId: number): Observable<Post> {
+    return this.http.get<Post>(this.API_URL + '/posts/' + blogId);
+  }
 }
