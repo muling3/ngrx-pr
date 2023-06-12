@@ -1,0 +1,11 @@
+<div class="w-screen md:w-1/2 min-h-screen p-1 md:p-2 mx-auto bg-red grid place-items-center">
+  <div class="w-11/12 md:w-3/4 p-2 md:p-4 shadow-sm shadow-slate-400 grid place-items-center">
+    <form class="p-0 md:p-3 w-full flex flex-col justify-center items-start" (submit)="login(loginForm.value)" #loginForm="ngForm">
+      <label for="username">Username</label>
+      <input type="text" name="username" class="w-full my-3 px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white" placeholder="Username" required ngModel>
+      <label for="email">Email</label>
+      <input type="email" name="email" class="w-full my-3 px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white" placeholder="Email" email required ngModel>
+      <input type="submit" value="LOGIN" [disabled]="loginForm.invalid" class="self-center w-1/2 mt-2 p-2 rounded-sm text-white bg-sky-500 cursor-pointer">
+    </form>
+  </div>
+</div>
