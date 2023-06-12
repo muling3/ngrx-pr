@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -25,11 +26,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
     RouterModule.forRoot([
-      { path: '', component: BlogsComponent },
-      { path: ':id', component: BlogItemComponent },
+      { path: '', component: BlogsComponent, pathMatch: "full" },
+      { path: 'blog/:id', component: BlogItemComponent, pathMatch: "full" },
       { path: '**', component: NotFoundComponent },
     ]),
   ],
