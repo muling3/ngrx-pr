@@ -13,6 +13,7 @@ export class BlogItemComponent {
   //initialising blog
   blog: Post | undefined;
   errorMsg: string | undefined;
+  error: boolean = false
   loading: boolean = false;
 
   constructor(
@@ -36,6 +37,9 @@ export class BlogItemComponent {
           //set loading to false
           this.loading = false;
 
+          //update error state
+          this.error = true
+          
           // set error
           this.errorMsg = 'Error occurred' + err.message;
           console.log('Error occurred ' + err);

@@ -21,6 +21,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthGuard } from './services/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
+import { TestDirective } from './directives/test.directive';
+import { TestStructuralDirective } from './directives/test-structural.directive';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { RegisterComponent } from './components/register/register.component';
     SpinnerComponent,
     LoginComponent,
     RegisterComponent,
+    TestDirective,
+    TestStructuralDirective,
   ],
   imports: [
     BrowserModule,
