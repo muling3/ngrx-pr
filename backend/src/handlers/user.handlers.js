@@ -1,21 +1,49 @@
-// register user
-const registerUser = (req, res) => {
+const dbHelpers = require('../helpers/db.helpers')
 
+// register user
+const registerUser = async (req, res) => {
+    const {name, username, email, password } = req.body
+
+    if(!name || !username || !email || !password ){
+        res.status(404).json({'message': "All input fields are required"})
+        return
+    }
+
+    const id = await dbHelpers.createUser(req.body)
+    res.status(201).json({"message": "User created successfully: Id -> "+id})
 }
 
 // login user
-const loginUser = (req, res) => {
+const loginUser = async(req, res) => {
+    const {username, password } = req.body
+
+    if(!username || !password ){
+        res.status(404).json({'message': "All input fields are required"})
+        return
+    }
+
+    const success = await dbHelpers.checkUserCredentials(req.body)
+    if(success) res.status(200).json({"message": "User logged in successfully"})
+    else res.status(400).json({"message": "Error logging in"})
     
 }
 
 // delete user
-const deleteUser = (req, res) => {
-    
+const deleteUser = async(req, res) => {
+    const {id} = req.params
+
+    if(!id ){
+        res.status(404).json({'message': "User id must be provided"})
+        return
+    }
+
+    const success = await dbHelpers.deleteUser(id)
+    if(success) res.status(200).json({"message": "User deleted successfully"})
+    else res.status(400).json({"message": "Error deleting user"})
 }
 
 // update user pass
 const updateUserPass = (req, res) => {
-    
 }
 
 module.exports = { registerUser, loginUser, deleteUser, updateUserPass }
