@@ -1,49 +1,94 @@
-const dbHelpers = require('../helpers/db.helpers')
+const dbHelpers = require("../helpers/db.helpers");
 
 // register user
 const registerUser = async (req, res) => {
-    const {name, username, email, password } = req.body
+  const { name, username, email, password } = req.body;
 
-    if(!name || !username || !email || !password ){
-        res.status(404).json({'message': "All input fields are required"})
-        return
-    }
+  if (!name || !username || !email || !password) {
+    res.status(404).json({ message: "All input fields are required" });
+    return;
+  }
 
-    const id = await dbHelpers.createUser(req.body)
-    res.status(201).json({"message": "User created successfully: Id -> "+id})
-}
+  // check if username already exists
+  const user = await dbHelpers.getUser({ username });
+  if (!user) {
+    res.status(409).json({ message: "Username already exists" });
+    return;
+  }
+
+  const id = await dbHelpers.createUser(req.body);
+  res.status(201).json({ message: "User created successfully: Id -> " + id });
+};
 
 // login user
-const loginUser = async(req, res) => {
-    const {username, password } = req.body
+const loginUser = async (req, res) => {
+  const { username, password } = req.body;
 
-    if(!username || !password ){
-        res.status(404).json({'message': "All input fields are required"})
-        return
-    }
+  if (!username || !password) {
+    res.status(404).json({ message: "All input fields are required" });
+    return;
+  }
 
-    const success = await dbHelpers.checkUserCredentials(req.body)
-    if(success) res.status(200).json({"message": "User logged in successfully"})
-    else res.status(400).json({"message": "Error logging in"})
-    
-}
+  const success = await dbHelpers.checkUserCredentials(req.body);
+
+  if (success) res.status(200).json({ message: "User logged in successfully" });
+  else res.status(400).json({ message: "Error logging in" });
+};
 
 // delete user
-const deleteUser = async(req, res) => {
-    const {id} = req.params
+const deleteUser = async (req, res) => {
+  const { username } = req.params;
 
-    if(!id ){
-        res.status(404).json({'message': "User id must be provided"})
-        return
-    }
+  if (!id) {
+    res.status(404).json({ message: "Username must be provided" });
+    return;
+  }
 
-    const success = await dbHelpers.deleteUser(id)
-    if(success) res.status(200).json({"message": "User deleted successfully"})
-    else res.status(400).json({"message": "Error deleting user"})
-}
+  //check if that user exists
+  const user = await dbHelpers.getUser({ username });
+  if (!user) {
+    res
+      .status(404)
+      .json({ message: "User does not exist. Confirm username first" });
+    return;
+  }
+
+  const success = await dbHelpers.deleteUser({ username });
+
+  if (success) res.status(200).json({ message: "User deleted successfully" });
+  else res.status(400).json({ message: "Error deleting user" });
+};
 
 // update user pass
-const updateUserPass = (req, res) => {
-}
+const updateUserPass = async (req, res) => {
+  const { username } = req.params;
 
-module.exports = { registerUser, loginUser, deleteUser, updateUserPass }
+  //ensure username was provided
+  if (!username) {
+    res.status(404).json({ message: "Username must be provided" });
+    return;
+  }
+
+  // ensure request body is not null
+  if (Object.entries(req.body) < 1) {
+    res.status(400).json({ message: "Body can't be empty" });
+    return;
+  }
+
+  //check if that user exists
+  const user = await dbHelpers.getUser({ username });
+  if (!user) {
+    res
+      .status(404)
+      .json({ message: "User does not exist. Confirm username first" });
+    return;
+  }
+
+  //update the user pass
+  const success = await dbHelpers.changeUserPass(username, req.body);
+
+  if (success) res.status(200).json({ message: "User deleted successfully" });
+  else res.status(400).json({ message: "Error deleting user" });
+};
+
+module.exports = { registerUser, loginUser, deleteUser, updateUserPass };
