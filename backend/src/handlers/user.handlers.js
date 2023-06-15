@@ -13,7 +13,7 @@ const registerUser = async (req, res) => {
 
   // check if username already exists
   const user = await dbHelpers.getUser({ username });
-  if (!user) {
+  if (user) {
     res.status(409).json({ message: "Username already exists" });
     return;
   }
