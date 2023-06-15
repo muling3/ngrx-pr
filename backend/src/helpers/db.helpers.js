@@ -20,7 +20,8 @@ const getUser = async (props) => {
 // userCredentialsMatches
 const checkUserCredentials = async (props) => {
   try {
-    await User.find({ ...props });
+    const found = await User.find({ ...props });
+    if (found.length < 1) throw new Error("User not found");
     return true;
   } catch (error) {
     return false;

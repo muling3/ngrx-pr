@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken");
+
 const dbHelpers = require("../helpers/db.helpers");
 
 // register user
@@ -5,7 +7,7 @@ const registerUser = async (req, res) => {
   const { name, username, email, password } = req.body;
 
   if (!name || !username || !email || !password) {
-    res.status(404).json({ message: "All input fields are required" });
+    res.status(400).json({ message: "All input fields are required" });
     return;
   }
 
@@ -25,14 +27,27 @@ const loginUser = async (req, res) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    res.status(404).json({ message: "All input fields are required" });
+    res.status(400).json({ message: "Username and Password fields are required" });
     return;
   }
 
   const success = await dbHelpers.checkUserCredentials(req.body);
 
-  if (success) res.status(200).json({ message: "User logged in successfully" });
-  else res.status(400).json({ message: "Error logging in" });
+  console.log(success);
+
+  //create jwt token
+  // 1. payload
+  const payload = {
+    iss: "localhost",
+    username,
+  };
+
+  // signing the token
+  const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "5m" });
+
+  if (success)
+    res.status(200).json({ token, message: "User logged in successfully" });
+  else res.status(400).json({ message: "Invalid credentials" });
 };
 
 // delete user
@@ -40,7 +55,7 @@ const deleteUser = async (req, res) => {
   const { username } = req.params;
 
   if (!id) {
-    res.status(404).json({ message: "Username must be provided" });
+    res.status(400).json({ message: "Username must be provided" });
     return;
   }
 
@@ -65,7 +80,7 @@ const updateUserPass = async (req, res) => {
 
   //ensure username was provided
   if (!username) {
-    res.status(404).json({ message: "Username must be provided" });
+    res.status(400).json({ message: "Username must be provided" });
     return;
   }
 
