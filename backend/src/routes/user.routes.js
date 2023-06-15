@@ -10,10 +10,10 @@ router.post("/register", registerUser)
 router.post("/login", loginUser)
 
 //deleteUser
-router.delete("/:id", deleteUser)
+router.delete("/:username", deleteUser)
 
 // update user password
-router.patch("/:id", updateUserPass)
+router.patch("/:username", updateUserPass)
 
 //exporting router
 module.exports = router
