@@ -23,6 +23,7 @@ import { AuthGuard } from './services/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
 import { TestDirective } from './directives/test.directive';
 import { TestStructuralDirective } from './directives/test-structural.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { TestStructuralDirective } from './directives/test-structural.directive'
       },
       { path: '**', component: NotFoundComponent, title: 'Not found' },
     ]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
