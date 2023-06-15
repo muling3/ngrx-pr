@@ -27,13 +27,13 @@ const loginUser = async (req, res) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    res.status(400).json({ message: "Username and Password fields are required" });
+    res
+      .status(400)
+      .json({ message: "Username and Password fields are required" });
     return;
   }
 
   const success = await dbHelpers.checkUserCredentials(req.body);
-
-  console.log(success);
 
   //create jwt token
   // 1. payload
@@ -44,6 +44,14 @@ const loginUser = async (req, res) => {
 
   // signing the token
   const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "5m" });
+
+  //register username and token in cookies
+  res.cookie("username-token", JSON.stringify({ username, token }), {
+    domain: "localhost:4000",
+    httpOnly: true,
+    expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // current time + 24 hrs or [ maxAge: 20 * 1000 ]
+    secure: true,
+  });
 
   if (success)
     res.status(200).json({ token, message: "User logged in successfully" });
