@@ -25,6 +25,10 @@ import { TestDirective } from './directives/test.directive';
 import { TestStructuralDirective } from './directives/test-structural.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { NgxPrintModule } from 'ngx-print';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DraggableComponent } from './components/draggable/draggable.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,10 +42,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegisterComponent,
     TestDirective,
     TestStructuralDirective,
+    DraggableComponent,
   ],
   imports: [
     BrowserModule,
+    DragDropModule,
     HttpClientModule,
+    NgxPrintModule,
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
@@ -58,6 +65,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       {
         path: 'auth',
         component: LoginComponent,
+        pathMatch: 'full',
+        title: 'auth',
+      },
+      {
+        path: 'drag',
+        component: DraggableComponent,
         pathMatch: 'full',
         title: 'auth',
       },
