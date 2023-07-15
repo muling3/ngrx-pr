@@ -1,6 +1,7 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const cors = require("cors")
+const dbConfig = require("./config/db.config")
 
 // initialising express app
 const app = express()
@@ -14,6 +15,9 @@ app.use(express.urlencoded({ extended: false }));
 
 //cors
 app.use(cors())
+
+//database connection
+dbConfig()
 
 // user routes
 app.use("/usr", require("./routes/user.routes"))
