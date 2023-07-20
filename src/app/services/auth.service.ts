@@ -9,6 +9,7 @@ import {
   providedIn: 'root',
 })
 export class AuthenticationService {
+  
   constructor(private router: Router) {}
 
   canActivate(
@@ -21,7 +22,10 @@ export class AuthenticationService {
     if (user) return true;
 
     // redirect to auth page
-    this.router.navigate(['auth'], { queryParams: { next: state.url } });
+    this.router.navigate(['auth'], {
+      queryParams: { next: next.url.join('/') },
+    });
+    
     return false;
   }
 }

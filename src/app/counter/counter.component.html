@@ -24,6 +24,27 @@
   </div>
 </div>
 
+<div>
+  <table #MyTable>
+    <thead>
+      <th>head1</th>
+      <th>head4</th>
+    </thead>
+    <tbody>
+      <tr #myRow>
+        <td><input type="checkbox" (change)="checkboxChange($event)"></td>
+        <td>name</td>
+        <td>super</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" (change)="checkboxChange($event)"></td>
+        <td>name</td>
+        <td>super</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <ng-template #modal>
   <div>Testing Custom Modal</div>
 </ng-template>

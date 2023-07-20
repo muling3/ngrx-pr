@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
@@ -27,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxPrintModule } from 'ngx-print';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { DraggableComponent } from './components/draggable/draggable.component'
+import { DraggableComponent } from './components/draggable/draggable.component';
+import { LoggingInterceptor } from './services/logging.interceptor';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,13 @@ import { DraggableComponent } from './components/draggable/draggable.component'
         canActivate: [AuthGuard],
       },
       {
+        path: 'counter',
+        component: CounterComponent,
+        pathMatch: 'full',
+        title: 'home',
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'auth',
         component: LoginComponent,
         pathMatch: 'full',
@@ -73,12 +81,14 @@ import { DraggableComponent } from './components/draggable/draggable.component'
         component: DraggableComponent,
         pathMatch: 'full',
         title: 'auth',
+        canActivate: [AuthGuard],
       },
       {
         path: 'register',
         component: RegisterComponent,
         pathMatch: 'full',
         title: 'Register',
+        canActivate: [AuthGuard],
       },
       {
         path: 'blog/:id',
@@ -91,7 +101,9 @@ import { DraggableComponent } from './components/draggable/draggable.component'
     ]),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
