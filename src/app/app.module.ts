@@ -29,6 +29,7 @@ import { NgxPrintModule } from 'ngx-print';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DraggableComponent } from './components/draggable/draggable.component';
 import { LoggingInterceptor } from './services/logging.interceptor';
+import { IntersectionDirective } from './directives/intersection.directive';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { LoggingInterceptor } from './services/logging.interceptor';
     TestDirective,
     TestStructuralDirective,
     DraggableComponent,
+    IntersectionDirective,
   ],
   imports: [
     BrowserModule,

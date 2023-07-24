@@ -41,12 +41,16 @@ export class BlogsComponent implements OnInit {
   ngOnInit(): void {
     this.loading = true;
     setTimeout(() => {
-      //getting all blogs
-      this.loadAllBlogs();
-
       //get all users
       this.loadAllUsers();
+
+      //getting all blogs
+      this.loadAllBlogs();
     }, 600);
+  }
+  
+  isIntersecting(status: boolean, index: number) {
+    console.log('Element #' + index + ' is intersecting ' + status);
   }
 
   loadAllBlogs(): void {
@@ -80,7 +84,7 @@ export class BlogsComponent implements OnInit {
     this.userService.getAllUsers().subscribe({
       next: (data) => {
         this.users = data;
-        console.log(data);
+        console.log('users', data);
       },
       error: (err) => {
         console.log('error occurred ' + err);
@@ -98,6 +102,7 @@ export class BlogsComponent implements OnInit {
       [array[i], array[j]] = [array[j], array[i]];
     }
 
+    console.log('users', array);
     return array;
   }
 }
