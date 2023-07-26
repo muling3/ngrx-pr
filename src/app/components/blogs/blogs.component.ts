@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { Post } from 'src/app/models/post.model';
 import { User } from 'src/app/models/user.model';
 import { BlogService } from 'src/app/services/blog.service';
@@ -18,9 +18,13 @@ export class BlogsComponent implements OnInit {
   loading: boolean = false;
   errorMsg: string | undefined;
 
+  @ViewChild('blogsList') blogsList!: ElementRef;
+  observer!: IntersectionObserver;
+
   constructor(
     private blogService: BlogService,
-    private userService: UserService
+    private userService: UserService,
+    private renderer: Renderer2
   ) {}
 
   movies = [
@@ -39,6 +43,9 @@ export class BlogsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const blogsRef = document.getElementById('blogsList');
+    console.log('native element ', document.getElementById('blogsList'));
+
     this.loading = true;
     setTimeout(() => {
       //get all users
@@ -48,7 +55,50 @@ export class BlogsComponent implements OnInit {
       this.loadAllBlogs();
     }, 600);
   }
-  
+
+  ngAfterViewInit(): void {
+    let options: IntersectionObserverInit = {
+      root: null,
+      // rootMargin: '0px',
+      threshold: [0.25, 0.5, 0.75, 1],
+    };
+    // registering intersection observer
+    this.observer = new IntersectionObserver((entries) => {
+      // if(entries.is)
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log('entries, entries ', entry);
+        }
+        if(entry.intersectionRatio > 0.25){
+          this.renderer.setStyle(this.blogsList.nativeElement, "background-color", "yellow");
+        }
+        if (entry.intersectionRatio > 0.5) {
+          this.renderer.setStyle(
+            this.blogsList.nativeElement,
+            'background-color',
+            'orange'
+          );
+        }
+        if (entry.intersectionRatio > 0.75) {
+          this.renderer.setStyle(
+            this.blogsList.nativeElement,
+            'background-color',
+            'blue'
+          );
+        }
+        if (entry.intersectionRatio >= 1) {
+          this.renderer.setStyle(
+            this.blogsList.nativeElement,
+            'background-color',
+            'green'
+          );
+        }
+      });
+    }, options);
+
+    this.observer.observe(this.blogsList.nativeElement);
+  }
+
   isIntersecting(status: boolean, index: number) {
     console.log('Element #' + index + ' is intersecting ' + status);
   }
@@ -105,4 +155,6 @@ export class BlogsComponent implements OnInit {
     console.log('users', array);
     return array;
   }
+
+  myObserverTest(): void {}
 }
