@@ -1,4 +1,4 @@
-module.exports = [
+const fakeUsers = [
   {
     firstName: "John",
     lastName: "Doe",
@@ -110,3 +110,7 @@ module.exports = [
     },
   },
 ];
+
+module.exports = (val) => {
+    console.log(" value received ", val);
+  }
