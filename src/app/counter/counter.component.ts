@@ -18,13 +18,13 @@ import { CommonModule } from '@angular/common';
   selector: 'app-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css'],
-  standalone: true,
-  imports: [CommonModule, RouterLink],
 })
 export class CounterComponent {
   count$!: Observable<number>;
 
-  @ViewChild('amount') amount!: ElementRef;
+  @ViewChild('myRow') tRow!: ElementRef;
+  @ViewChild('amount')
+  amount!: ElementRef;
 
   constructor(
     private store: Store<{ count: number }>,
@@ -33,6 +33,8 @@ export class CounterComponent {
   ) {
     this.count$ = store.select('count');
   }
+
+  ngOnInit() {}
 
   increment() {
     this.store.dispatch({ type: ActionTypes.IncrementCount });
@@ -52,10 +54,26 @@ export class CounterComponent {
       type: ActionTypes.IncrementByValue,
       payload: { value: parseInt(this.amount.nativeElement.value) },
     });
-  }
+    
+      }
 
   openModal(modal: TemplateRef<any>): void {
     const componentRef = this.resolver.createComponent(ModalComponent);
     componentRef;
+  }
+
+  checkboxChange(e: any) {
+    let obj = {};
+    // console.log('tRow', this.tRow.nativeElement.cells);
+    // let cells = Array.from(this.tRow.nativeElement.cells).splice(0, 1);
+    // for (let i = 0; i < cells.length; i++) {
+    //   const element = cells[i] as HTMLTableCellElement;
+    //   console.log('val', element.innerText);
+    // }
+
+    const cells = this.tRow.nativeElement.querySelectorAll('td');
+    const rowValues = Array.from(cells).map((cell: any) => cell.textContent);
+    rowValues.splice(0, 1);
+    console.log('Row Values:', rowValues);
   }
 }

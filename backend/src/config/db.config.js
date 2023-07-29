@@ -1,13 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
-const CONNECTION_URI = "mongodb://root:password@localhost:27017/ngrx-pr"
-
-module.exports = async () => {
-  try {
-    await mongoose.connect(CONNECTION_URI);
-    console.log("Connected successfully to db")
-  } catch (error) {
-    console.log("Error occurred while connecting to db", error)
-    process.exit(1)
-  }
-};
+module.exports = async() => {
+    try {
+        await mongoose.connect(process.env.MONGO_URL)
+        console.log("Successfully connected to database")
+    } catch (error) {
+        console.log("Eroor Occurred: Check your connection string")
+        process.exit(1)
+    }
+}

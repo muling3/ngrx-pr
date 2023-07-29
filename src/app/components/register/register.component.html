@@ -1,0 +1,235 @@
+<!-- reactive form -->
+<div
+  class="w-screen md:w-1/2 min-h-screen p-1 md:p-2 mx-auto bg-red grid place-items-center"
+>
+  <div
+    class="w-11/12 md:w-3/4 p-2 md:p-4 shadow-sm shadow-slate-400 grid place-items-center"
+  >
+    <form
+      class="p-0 md:p-3 w-full flex flex-col justify-center items-start"
+      [formGroup]="registrationForm"
+      (ngSubmit)="getFormValue()"
+      novalidate
+    >
+      <!-- fullname form group -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <label for="fullname">Full name</label>
+        <input
+          type="text"
+          name="fullname"
+          class="w-full px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white"
+          placeholder="Full name"
+          formControlName="name"
+        />
+        <div
+          *ngIf="
+            registrationFormControls['name'].touched &&
+            registrationFormControls['name'].invalid &&
+            registrationFormControls['name'].errors
+          "
+          class="mt-0"
+        >
+          <small
+            *ngIf="registrationFormControls['name'].errors['required']"
+            class="text-red-500"
+          >
+            FullName is required
+          </small>
+          <small
+            *ngIf="registrationFormControls['name'].errors['minlength']"
+            class="text-red-500"
+          >
+            FullName is too short
+          </small>
+          <small
+            *ngIf="registrationFormControls['name'].errors['maxlength']"
+            class="text-red-500"
+          >
+            FullName is too long
+          </small>
+          <small
+            *ngIf="registrationFormControls['name'].errors['reservedName']"
+            class="text-red-500"
+          >
+            Name is reserved. Try another!
+          </small>
+        </div>
+      </div>
+
+      <!-- username form group -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          class="w-full px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white"
+          placeholder="Username"
+          formControlName="username"
+        />
+        <div
+          *ngIf="
+            registrationFormControls['username'].touched &&
+            registrationFormControls['username'].invalid &&
+            registrationFormControls['username'].errors
+          "
+          class="mt-0"
+        >
+          <small
+            *ngIf="registrationFormControls['username'].errors['required']"
+            class="text-red-500"
+          >
+            Username is required
+          </small>
+          <small
+            *ngIf="registrationFormControls['username'].errors['minlength']"
+            class="text-red-500"
+          >
+            Username is too short
+          </small>
+          <small
+            *ngIf="registrationFormControls['username'].errors['maxlength']"
+            class="text-red-500"
+          >
+            Username is too long
+          </small>
+        </div>
+      </div>
+
+      <!-- email input field -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          class="w-full px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white"
+          placeholder="Email"
+          formControlName="email"
+        />
+        <div
+          *ngIf="
+            registrationFormControls['email'].touched &&
+            registrationFormControls['email'].invalid &&
+            registrationFormControls['email'].errors
+          "
+          class="invalid-feedback"
+        >
+          <small
+            *ngIf="registrationFormControls['email'].errors['required']"
+            class="text-red-500"
+          >
+            Email is required
+          </small>
+          <small
+            *ngIf="registrationFormControls['email'].errors['email']"
+            class="text-red-500"
+          >
+            Email is invalid
+          </small>
+        </div>
+      </div>
+
+      <!-- password form group -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          class="w-full px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <div
+          *ngIf="
+            registrationFormControls['password'].touched &&
+            registrationFormControls['password'].invalid &&
+            registrationFormControls['password'].errors
+          "
+          class="invalid-feedback"
+        >
+          <small
+            *ngIf="registrationFormControls['password'].errors['required']"
+            class="text-red-500"
+          >
+            Password is required
+          </small>
+          <small
+            *ngIf="registrationFormControls['password'].errors['minlength']"
+            class="text-red-500"
+          >
+            Password is too short [ 6 - 10]
+          </small>
+          <small
+            *ngIf="registrationFormControls['password'].errors['maxlength']"
+            class="text-red-500"
+          >
+            Password is too long [6 - 10]
+          </small>
+        </div>
+      </div>
+
+      <!-- confirm password form group -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <label for="password">Confirm Password</label>
+        <input
+          type="password"
+          name="cnf-password"
+          class="w-full px-3 py-2 rounded border focus:border-sky-500 focus:border focus: outline-none bg-white"
+          placeholder="Confirm password"
+          formControlName="confirmPassword"
+        />
+        <div
+          *ngIf="
+            registrationFormControls['confirmPassword'].touched &&
+            registrationFormControls['confirmPassword'].invalid &&
+            registrationFormControls['confirmPassword'].errors
+          "
+          class="invalid-feedback"
+        >
+          <small
+            *ngIf="
+              registrationFormControls['confirmPassword'].errors['required']
+            "
+            class="text-red-500"
+          >
+            Confirmation password is required
+          </small>
+          <small
+            *ngIf="
+              registrationFormControls['confirmPassword'].errors['minlength']
+            "
+            class="text-red-500"
+          >
+            Confirmation password is too short [ 6 - 10]
+          </small>
+          <small
+            *ngIf="
+              registrationFormControls['confirmPassword'].errors['maxlength']
+            "
+            class="text-red-500"
+          >
+            Confirmation password is too long [6 - 10]
+          </small>
+          <small
+            *ngIf="
+              registrationFormControls['confirmPassword'].value !=
+              registrationFormControls['password'].value
+            "
+            class="text-red-500"
+          >
+            Passwords do not match
+          </small>
+        </div>
+      </div>
+
+      <!-- submit button -->
+      <div class="w-full flex justify-start items-start flex-col my-2">
+        <input
+          type="submit"
+          value="REGISTER"
+          [disabled]="!registrationForm.valid"
+          class="self-center w-1/2 mt-2 p-2 rounded-sm text-white bg-sky-500 cursor-pointer"
+        />
+      </div>
+    </form>
+  </div>
+</div>

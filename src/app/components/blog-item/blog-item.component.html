@@ -1,0 +1,12 @@
+
+<app-spinner *ngIf="loading == true"></app-spinner>
+
+<div *ngIf="loading == false" class="w-3/4 min-h-screen md:w-2/4 mx-auto grid place-items-center">
+    <div *ngIf="blog" class="p-8 bg-blue-100 shadow-lg shadow-gray-400 rounded-md flex items-center justify-center flex-col" appTest [innerStyles]="{color: 'white', backgroundColor: 'green'}">
+        <p> <span class="font-bold">Title: </span> {{ blog.title }} </p>
+        <p> <span class="font-bold">Body: </span> {{ blog.body }} </p>
+    </div>
+    <div *appTestStructural="errorMsg != undefined">
+        <p>{{ errorMsg }}</p>
+    </div>
+</div>
