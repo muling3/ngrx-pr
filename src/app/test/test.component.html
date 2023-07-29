@@ -1,0 +1,15 @@
+<div class="container" *myTest="['one', 'two', 'three', 'Four']">
+  <input
+    type="text"
+    name="search"
+    id="search"
+    [(ngModel)]="searchText"
+  />
+  <p>here is sample paragraph</p>
+  test custom class directive
+
+  <p>Search text {{ searchText }}</p>
+
+  <app-child [parentData]="childData"></app-child>
+  <button (click)="btnClick()">my button</button>
+</div>
