@@ -1,0 +1,33 @@
+<div>
+dynamic table
+</div>
+<div style="width: 80%; margin: 20px auto" *ngIf="data.title">
+  <h1 style="text-align: center">title - {{ data.title }}</h1>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>{{ data.header.name }}</th>
+        <th
+          *ngFor="let d of data.header.columns"
+        >
+          {{ d }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of data.vaccines">
+        <td><input type="checkbox"></td>
+        <td>{{ d.vaccineName }} <br/> <small *ngIf="d.alias" style="font-style: italic;">({{ d.alias }})</small></td>
+        <td
+          [ngStyle]="{
+            'background-color': r.dosageType == 'Single' ? 'green' : r.dosageType == 'Combined' ? 'yellow' : ''
+          }"
+          *ngFor="let r of d.doses"
+        >
+          {{ r.dosageName }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

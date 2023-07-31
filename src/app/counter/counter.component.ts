@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 
 import { ActionTypes } from '../counter.actions';
 import { ModalComponent } from '../modal/modal.component';
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-counter',
@@ -21,7 +23,6 @@ export class CounterComponent {
   count$!: Observable<number>;
 
   @ViewChild('myRow') tRow!: ElementRef;
-
   @ViewChild('amount')
   amount!: ElementRef;
 
@@ -53,7 +54,8 @@ export class CounterComponent {
       type: ActionTypes.IncrementByValue,
       payload: { value: parseInt(this.amount.nativeElement.value) },
     });
-  }
+    
+      }
 
   openModal(modal: TemplateRef<any>): void {
     const componentRef = this.resolver.createComponent(ModalComponent);
