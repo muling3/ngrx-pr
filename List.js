@@ -102,11 +102,27 @@ class CustomList {
   }
 
   // foldl
-  // TODO:
+  foldl(callbackfn, accumulator, list) {
+    let currentValue = 0;
+    for (const elem of this.myArray) {
+      currentValue = elem * 1;
+      accumulator = callbackfn(accumulator, currentValue);
+    }
+
+    return accumulator;
+  }
 
   // foldr
-  // TODO:
-  
+  foldr(callbackfn, accumulator) {
+    let currentValue = 0;
+    for (const elem of this.myArray) {
+      currentValue = elem * 1;
+      accumulator = callbackfn(currentValue, accumulator);
+    }
+
+    return accumulator;
+  }
+
   // reverse
   reverse() {
     let reversedElems = "";
@@ -129,7 +145,7 @@ let mySampleList = CustomList.create(12, 12, 13, 14);
 // mySampleList.append(42);
 // mySampleList.append(52);
 
-mySampleList.concatenate(20, 22, 42, 52)
+// mySampleList.concatenate(20, 22, 42, 52)
 
 // mySampleList.myForEach((elem) => console.log(elem));
 
@@ -141,7 +157,13 @@ mySampleList.concatenate(20, 22, 42, 52)
 
 // console.log("samplelist length", mySampleList.length());
 
-let myReversedArray = mySampleList.reverse();
-myReversedArray.myForEach((elem) => console.log(elem));
+// let myReversedArray = mySampleList.reverse();
+// myReversedArray.myForEach((elem) => console.log(elem));
+
+// let totalSum = mySampleList.foldl((acc, current) => acc + current, 0)
+// console.log("totalSum ", totalSum)
+
+let totalSum = mySampleList.foldr((current, acc) => current + acc, 0);
+console.log("totalSum ", totalSum)
 
 console.log("samplelist ", mySampleList);
