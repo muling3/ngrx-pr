@@ -22,11 +22,11 @@ const ROUTES: Routes = [
       { path: 'table', component: DynamicTableComponent },
 ];
 
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideRouter(ROUTES),
-    provideStore(reducers),
-    provideStoreDevtools(),
-    importProvidersFrom(AppModule)
-  ],
-});
+// bootstrapApplication(AppComponent, {
+//   providers: [
+//     provideRouter(ROUTES),
+//     provideStore(reducers),
+//     provideStoreDevtools(),
+//     importProvidersFrom(AppModule)
+//   ],
+// });

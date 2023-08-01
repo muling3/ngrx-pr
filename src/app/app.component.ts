@@ -7,8 +7,8 @@ import { CounterComponent } from './counter/counter.component';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  standalone: true,
-  imports: [CounterComponent, TestComponent, RouterOutlet, RouterLink]
+  // standalone: true,
+  // imports: [CounterComponent, TestComponent, RouterOutlet, RouterLink]
 })
 export class AppComponent {
   title = 'ngrx-app';
