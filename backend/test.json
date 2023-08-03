@@ -1,0 +1,182 @@
+{
+    "claim":  [
+        {
+            "claimnumber": [
+                "23-211929-amlas"
+            ],
+            "incidentnumber": [
+                "2023-00641469"
+            ],
+            "dateofservice": [
+                "4/27/2023"
+            ],
+            "transportorigin": [
+                {
+                    "facilityname": [
+                        "331 grayton dr, smyrna, de, 19977"
+                    ],
+                    "streetaddress": [
+                        "331 grayton dr"
+                    ],
+                    "city": [
+                        "smyrna"
+                    ],
+                    "state": [
+                        "de"
+                    ],
+                    "zip": [
+                        "19901-3530"
+                    ]
+                }
+            ],
+            "transportdestination": [
+                {
+                    "facilityname": [
+                        "bayhealth hospital - kent campus"
+                    ],
+                    "streetaddress": [
+                        "640 s state st"
+                    ],
+                    "city": [
+                        "dover"
+                    ],
+                    "state": [
+                        "de"
+                    ],
+                    "zip": [
+                        "19901-3530"
+                    ]
+                }
+            ],
+            "balance": [
+                "105.39"
+            ],
+            "selfposted": [
+                ""
+            ],
+            "insuranceposted": [
+                "996.61"
+            ],
+            "procedures": [
+                {
+                    "procedure": [
+                        {
+                            "code": [
+                                "default"
+                            ],
+                            "description": [
+                                "ground mileage"
+                            ],
+                            "charge": [
+                                "252.00"
+                            ],
+                            "payment": [
+                                "233.71"
+                            ]
+                        },
+                        {
+                            "code": [
+                                "default"
+                            ],
+                            "description": [
+                                "ambulance, basic life support, emergency"
+                            ],
+                            "charge": [
+                                "850.00"
+                            ],
+                            "payment": [
+                                "762.9"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "billdetail": [
+                {
+                    "date": [
+                        "07/24/2023"
+                    ],
+                    "transactiontype": [
+                        "adjustment"
+                    ],
+                    "detail": [
+                        "adjustment against co - 253"
+                    ],
+                    "balance": [
+                        "6.97"
+                    ]
+                },
+                {
+                    "date": [
+                        "07/24/2023"
+                    ],
+                    "transactiontype": [
+                        "adjustment"
+                    ],
+                    "detail": [
+                        "adjustment against co - 45"
+                    ],
+                    "balance": [
+                        "414.52"
+                    ]
+                },
+                {
+                    "date": [
+                        "07/24/2023"
+                    ],
+                    "transactiontype": [
+                        "payment"
+                    ],
+                    "detail": [
+                        "payment from cigna healthspring medicare advantage"
+                    ],
+                    "balance": [
+                        "341.41"
+                    ]
+                },
+                {
+                    "date": [
+                        "07/24/2023"
+                    ],
+                    "transactiontype": [
+                        "adjustment"
+                    ],
+                    "detail": [
+                        "adjustment against co - 253"
+                    ],
+                    "balance": [
+                        "1.46"
+                    ]
+                },
+                {
+                    "date": [
+                        "07/24/2023"
+                    ],
+                    "transactiontype": [
+                        "adjustment"
+                    ],
+                    "detail": [
+                        "adjustment against co - 45"
+                    ],
+                    "balance": [
+                        "160.54"
+                    ]
+                },
+                {
+                    "date": [
+                        "07/24/2023"
+                    ],
+                    "transactiontype": [
+                        "payment"
+                    ],
+                    "detail": [
+                        "payment from cigna healthspring medicare advantage"
+                    ],
+                    "balance": [
+                        "71.71"
+                    ]
+                }
+            ]
+        }
+    ]
+}

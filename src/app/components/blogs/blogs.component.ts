@@ -5,6 +5,7 @@ import { BlogService } from 'src/app/services/blog.service';
 import { UserService } from 'src/app/services/user.service';
 
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { ListTest } from './ListOps';
 
 @Component({
   selector: 'app-blogs',
@@ -43,6 +44,30 @@ export class BlogsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const list1 = ListTest.create(1, 2);
+    const list2 = ListTest.create(3);
+    const list3 = ListTest.create();
+    const list4 = ListTest.create(4, 5, 6);
+    const listOfLists = ListTest.create(list2, list3, list4);
+
+    // listTwo.forEach((item) => console.log('num ', item));
+
+    // let updatedList: number[] = listTwo.concat(listOne, listThree);
+
+    // console.log("updatedList ", updatedList)
+
+    // console.log('reversed ', updatedList.reverse());
+
+    // console.log('append ', listTwo.append(listThree));
+    // console.log(
+    //   'filter ',
+    //   updatedList.filter((item) => item % 2 == 0)
+    // );
+    // console.log(
+    //   'map ',
+    //   updatedList.map((item) => item * 2)
+    // );
+
     const blogsRef = document.getElementById('blogsList');
     console.log('native element ', document.getElementById('blogsList'));
 
@@ -57,6 +82,7 @@ export class BlogsComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
+
     let options: IntersectionObserverInit = {
       root: null,
       // rootMargin: '0px',
@@ -67,7 +93,7 @@ export class BlogsComponent implements OnInit {
       // if(entries.is)
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log('entries, entries ', entry);
+          // console.log('entries, entries ', entry);
         }
         if(entry.intersectionRatio > 0.25){
           this.renderer.setStyle(this.blogsList.nativeElement, "background-color", "yellow");
