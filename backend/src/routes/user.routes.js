@@ -10,7 +10,7 @@ const {
 } = require("../handlers/user.handlers");
 
 //registering user
-router.post("/register", authorize, registerUser);
+router.post("/register", registerUser);
 
 //login user
 router.post("/login", loginUser);

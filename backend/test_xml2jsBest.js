@@ -10,18 +10,19 @@ let parser = new xml2js.Parser({
   tagNameProcessors: [xml2js.processors.firstCharLowerCase],
   // attrNameProcessors: [toLower],
   // valueProcessors: [toLower],
-  // valueProcessors: [
-  //   xml2js.processors.parseBooleans,
-  //   xml2js.processors.parseNumbers,
-  // ],
+  valueProcessors: [
+    xml2js.processors.parseBooleans,
+    xml2js.processors.parseNumbers,
+  ],
   // attrValueProcessors: [toLower],
-  normalize: true,
+  // normalize: true,
 });
 
 const createJson = () => {
   let readData = readFromFile("patient_xml.xml");
 
   parser.parseString(readData, (err, res) => {
+    console.log("inside here");
     writeToFile("patient_json.json", JSON.stringify(res));
     console.log("finished");
   });
@@ -29,6 +30,8 @@ const createJson = () => {
 
 const refineJson = () => {
   let readData = JSON.parse(readFromFile("patient_json.json"));
+
+  //   console.log(readData.MailingBatch.MailingGroup[0]);
   //loop through the mailgroup array
   let theBiggerObj = {};
   let theBiggerArray = [];
@@ -44,18 +47,25 @@ const refineJson = () => {
 
     theBiggerArray.push(updatedPatient);
 
+    // console.log("updated", updatedPatient);
     // writeToFile("test_my_patienr.json", JSON.stringify(updatedPatient));
     //   Object.assign(updatedPatient, {})
-    break;
+    // break;
   }
 
+  // console.log("elements added ", i);
   Object.assign(theBiggerObj, { mailingGroup: theBiggerArray });
   writeToFile("test_all_patients.json", JSON.stringify(theBiggerObj));
 };
 
 const getJsonValue = (val) => {
   let obj = {};
-  if (typeof val === "string") return val;
+  if (
+    typeof val === "string" ||
+    typeof val === "number" ||
+    typeof val === "boolean"
+  )
+    return val; // patien
 
   if (typeof val === "object") {
     let entries = Object.entries(val);
@@ -72,6 +82,8 @@ const getJsonValue = (val) => {
           }
           vObj.push(itemObj);
         }
+
+        Object.assign(obj, { [k]: vObj });
       } else {
         Object.assign(obj, { [k]: getJsonValue(v[0]) });
       }
@@ -91,5 +103,5 @@ const readFromFile = (filename) => {
 
 // calling createJson()
 
-// createJson();
+createJson();
 refineJson();

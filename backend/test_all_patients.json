@@ -12,8 +12,8 @@
                     "streetAddress2": "",
                     "city": "Smyrna",
                     "state": "Delaware",
-                    "zip": "19977",
-                    "zipPlus4": "2230"
+                    "zip": 19977,
+                    "zipPlus4": 2230
                 },
                 "fAXNumber": "864-902-9944",
                 "returnAddress": {
@@ -21,8 +21,8 @@
                     "streetAddress": "PO Box 3348",
                     "city": "Spartanburg",
                     "state": "SC",
-                    "zip": "29304",
-                    "zipPlus4": "3348"
+                    "zip": 29304,
+                    "zipPlus4": 3348
                 },
                 "remitAddress": {
                     "name": "American Legion Ambulance Services",
@@ -30,14 +30,14 @@
                     "streetAddress2": "",
                     "city": "Spartanburg",
                     "state": "South Carolina",
-                    "zip": "29304",
-                    "zipPlus4": "3348"
+                    "zip": 29304,
+                    "zipPlus4": 3348
                 },
                 "patients": {
                     "patient": {
                         "accountNumber": "Test1123",
                         "lastName": "Test",
-                        "firstName": "123",
+                        "firstName": 123,
                         "sSN": "919-00-9988",
                         "doB": "03/18/1978",
                         "sendTo": {
@@ -46,8 +46,8 @@
                             "streetAddress2": "",
                             "city": "Clayton",
                             "state": "Delaware",
-                            "zip": "19938",
-                            "zipPlus4": "2226"
+                            "zip": 19938,
+                            "zipPlus4": 2226
                         },
                         "claims": {
                             "claim": {
@@ -68,22 +68,22 @@
                                     "state": "DE",
                                     "zip": "19901-3530"
                                 },
-                                "balance": "205.00",
+                                "balance": 205,
                                 "selfPosted": "",
-                                "insurancePosted": "981",
+                                "insurancePosted": 981,
                                 "procedures": {
                                     "procedure": [
                                         {
                                             "code": "DEFAULT",
                                             "description": "Ground mileage",
-                                            "charge": "336.00",
-                                            "payment": "336"
+                                            "charge": 336,
+                                            "payment": 336
                                         },
                                         {
                                             "code": "DEFAULT",
                                             "description": "Ambulance, basic life support, emergency",
-                                            "charge": "850.00",
-                                            "payment": "645"
+                                            "charge": 850,
+                                            "payment": 645
                                         }
                                     ]
                                 },
@@ -92,53 +92,989 @@
                                         "date": "07/24/2023",
                                         "transactionType": "Adjustment",
                                         "detail": "Adjustment against CO - 253",
-                                        "balance": "4.61"
+                                        "balance": 4.61
                                     },
                                     {
                                         "date": "07/24/2023",
                                         "transactionType": "Adjustment",
                                         "detail": "Adjustment against CO - 45",
-                                        "balance": "414.52"
+                                        "balance": 414.52
                                     },
                                     {
                                         "date": "07/24/2023",
                                         "transactionType": "Payment",
                                         "detail": "Payment from Cigna Healthspring Medicare Advantage",
-                                        "balance": "225.87"
+                                        "balance": 225.87
                                     },
                                     {
                                         "date": "07/24/2023",
                                         "transactionType": "Adjustment",
                                         "detail": "Adjustment against CO - 253",
-                                        "balance": "2.44"
+                                        "balance": 2.44
                                     },
                                     {
                                         "date": "07/24/2023",
                                         "transactionType": "Adjustment",
                                         "detail": "Adjustment against CO - 45",
-                                        "balance": "214.06"
+                                        "balance": 214.06
                                     },
                                     {
                                         "date": "07/24/2023",
                                         "transactionType": "Payment",
                                         "detail": "Payment from Cigna Healthspring Medicare Advantage",
-                                        "balance": "119.50"
+                                        "balance": 119.5
                                     }
                                 ]
                             }
                         },
                         "billing": {
-                            "amountTotal": "205.00",
-                            "amountCurrent": "205.00",
-                            "amount3160": "0",
-                            "amount6190": "0",
-                            "amount91120": "0",
-                            "amountOver120": "0",
-                            "totalPatientAmountBalance": "205.00"
+                            "amountTotal": 205,
+                            "amountCurrent": 205,
+                            "amount3160": 0,
+                            "amount6190": 0,
+                            "amount91120": 0,
+                            "amountOver120": 0,
+                            "totalPatientAmountBalance": 205
                         },
                         "notes": {
                             "mainHeader": "",
                             "mainBody": "This is your Co-Insurance Amount",
+                            "subHeader": "",
+                            "subBody": ""
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "mailingType": "Patient Statements",
+            "date": "07/24/2023",
+            "agency": {
+                "groupNumber": "9c0089b2-2235-ce6d-cc55-08d96e247d0e",
+                "subGroupNumber": "bb1d77f6-47ce-c5d6-dfa3-08d976e59b3a",
+                "address": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "900 Smyrna Clayton Blvd",
+                    "streetAddress2": "",
+                    "city": "Smyrna",
+                    "state": "Delaware",
+                    "zip": 19977,
+                    "zipPlus4": 2230
+                },
+                "fAXNumber": "864-902-9944",
+                "returnAddress": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "PO Box 3348",
+                    "city": "Spartanburg",
+                    "state": "SC",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "remitAddress": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "PO Box 3348",
+                    "streetAddress2": "",
+                    "city": "Spartanburg",
+                    "state": "South Carolina",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "patients": {
+                    "patient": {
+                        "accountNumber": "TEST5554",
+                        "lastName": "Test",
+                        "firstName": 4554,
+                        "doB": "06/08/1975",
+                        "sendTo": {
+                            "name": "Fidel CASTRO",
+                            "streetAddress": "800 Greystone Dr",
+                            "streetAddress2": "",
+                            "city": "Smyrna",
+                            "state": "Delaware",
+                            "zip": 19977,
+                            "zipPlus4": 4461
+                        },
+                        "claims": {
+                            "claim": {
+                                "claimNumber": "23-211929-AMLAS",
+                                "incidentNumber": "2023-00641469",
+                                "dateOfService": "4/27/2023",
+                                "transportOrigin": {
+                                    "facilityName": "331 GRAYTON DR, Smyrna, DE, 19977",
+                                    "streetAddress": "331 GRAYTON DR",
+                                    "city": "Smyrna",
+                                    "state": "DE",
+                                    "zip": "19901-3530"
+                                },
+                                "transportDestination": {
+                                    "facilityName": "Bayhealth Hospital - Kent Campus",
+                                    "streetAddress": "640 S State St",
+                                    "city": "Dover",
+                                    "state": "DE",
+                                    "zip": "19901-3530"
+                                },
+                                "balance": 105.39,
+                                "selfPosted": "",
+                                "insurancePosted": 996.61,
+                                "procedures": {
+                                    "procedure": [
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ground mileage",
+                                            "charge": 252,
+                                            "payment": 233.71
+                                        },
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ambulance, basic life support, emergency",
+                                            "charge": 850,
+                                            "payment": 762.9
+                                        }
+                                    ]
+                                },
+                                "billDetail": [
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 253",
+                                        "balance": 6.97
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 45",
+                                        "balance": 414.52
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Payment",
+                                        "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                        "balance": 341.41
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 253",
+                                        "balance": 1.46
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 45",
+                                        "balance": 160.54
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Payment",
+                                        "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                        "balance": 71.71
+                                    }
+                                ]
+                            }
+                        },
+                        "billing": {
+                            "amountTotal": 105.39,
+                            "amountCurrent": 105.39,
+                            "amount3160": 0,
+                            "amount6190": 0,
+                            "amount91120": 0,
+                            "amountOver120": 0,
+                            "totalPatientAmountBalance": 105.39
+                        },
+                        "notes": {
+                            "mainHeader": "",
+                            "mainBody": "This is your Co-Insurance Amount",
+                            "subHeader": "",
+                            "subBody": ""
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "mailingType": "Patient Statements",
+            "date": "07/24/2023",
+            "agency": {
+                "groupNumber": "9c0089b2-2235-ce6d-cc55-08d96e247d0e",
+                "subGroupNumber": "bb1d77f6-47ce-c5d6-dfa3-08d976e59b3a",
+                "address": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "900 Smyrna Clayton Blvd",
+                    "streetAddress2": "",
+                    "city": "Smyrna",
+                    "state": "Delaware",
+                    "zip": 19977,
+                    "zipPlus4": 2230
+                },
+                "fAXNumber": "864-902-9944",
+                "returnAddress": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "PO Box 3348",
+                    "city": "Spartanburg",
+                    "state": "SC",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "remitAddress": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "PO Box 3348",
+                    "streetAddress2": "",
+                    "city": "Spartanburg",
+                    "state": "South Carolina",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "patients": {
+                    "patient": {
+                        "accountNumber": "MCDONLDS2401-1",
+                        "lastName": "MCDONALD",
+                        "firstName": "JUNE",
+                        "sSN": "445-40-7767",
+                        "doB": "01/24/1967",
+                        "sendTo": {
+                            "name": "JUNE MCDONALD",
+                            "streetAddress": "855 Phill Collins Ave",
+                            "streetAddress2": "",
+                            "city": "Smyrna",
+                            "state": "Delaware",
+                            "zip": 19977,
+                            "zipPlus4": 1711,
+                            "phone": "302-653-9475"
+                        },
+                        "claims": {
+                            "claim": {
+                                "claimNumber": "23-206146-AMLAS",
+                                "incidentNumber": "2023-00641263",
+                                "dateOfService": "4/10/2023",
+                                "transportOrigin": {
+                                    "facilityName": "855 Phill Collins Ave, Smyrna, DE, 19977",
+                                    "streetAddress": "855 Phill Collins Ave",
+                                    "city": "Smyrna",
+                                    "state": "DE",
+                                    "zip": "19977-1281"
+                                },
+                                "transportDestination": {
+                                    "facilityName": "Bayhealth Emergency Center - Smyrna",
+                                    "streetAddress": "401 N Carter Rd",
+                                    "city": "Smyrna",
+                                    "state": "DE",
+                                    "zip": "19977-1281"
+                                },
+                                "balance": 90.24,
+                                "selfPosted": "",
+                                "insurancePosted": 802.96,
+                                "procedures": {
+                                    "procedure": [
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ground mileage",
+                                            "charge": 43.2,
+                                            "payment": 40.06
+                                        },
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ambulance, basic life support, emergency",
+                                            "charge": 850,
+                                            "payment": 762.9
+                                        }
+                                    ]
+                                },
+                                "billDetail": [
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 253",
+                                        "balance": 6.97
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 45",
+                                        "balance": 414.52
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Payment",
+                                        "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                        "balance": 341.41
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 253",
+                                        "balance": 0.25
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 45",
+                                        "balance": 27.52
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Payment",
+                                        "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                        "balance": 12.29
+                                    }
+                                ]
+                            }
+                        },
+                        "billing": {
+                            "amountTotal": 90.24,
+                            "amountCurrent": 90.24,
+                            "amount3160": 0,
+                            "amount6190": 0,
+                            "amount91120": 0,
+                            "amountOver120": 0,
+                            "totalPatientAmountBalance": 90.24
+                        },
+                        "notes": {
+                            "mainHeader": "",
+                            "mainBody": "This is your Co-Insurance Amount",
+                            "subHeader": "",
+                            "subBody": ""
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "mailingType": "Patient Statements",
+            "date": "07/24/2023",
+            "agency": {
+                "groupNumber": "9c0089b2-2235-ce6d-cc55-08d96e247d0e",
+                "subGroupNumber": "bb1d77f6-47ce-c5d6-dfa3-08d976e59b3a",
+                "address": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "900 Smyrna Clayton Blvd",
+                    "streetAddress2": "",
+                    "city": "Smyrna",
+                    "state": "Delaware",
+                    "zip": 19977,
+                    "zipPlus4": 2230
+                },
+                "fAXNumber": "864-902-9944",
+                "returnAddress": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "PO Box 3348",
+                    "city": "Spartanburg",
+                    "state": "SC",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "remitAddress": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "PO Box 3348",
+                    "streetAddress2": "",
+                    "city": "Spartanburg",
+                    "state": "South Carolina",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "patients": {
+                    "patient": {
+                        "accountNumber": "BAER-1",
+                        "lastName": "BAER",
+                        "firstName": "Jean",
+                        "sSN": "765-44-8766",
+                        "doB": "01/20/1973",
+                        "sendTo": {
+                            "name": "Jean S BAER",
+                            "streetAddress": "8876 S DuPont Blvd",
+                            "streetAddress2": "",
+                            "city": "Smyrna",
+                            "state": "Delaware",
+                            "zip": 19977,
+                            "zipPlus4": 1898,
+                            "phone": "302-698-9005"
+                        },
+                        "claims": {
+                            "claim": {
+                                "claimNumber": "23-207198-AMLAS",
+                                "incidentNumber": "2023-00641291",
+                                "dateOfService": "4/13/2023",
+                                "transportOrigin": {
+                                    "facilityName": "8876 S DUPONT BLVD, Smyrna, DE, 19977",
+                                    "streetAddress": "8876 S DUPONT BLVD",
+                                    "city": "Smyrna",
+                                    "state": "DE",
+                                    "zip": "19901-3530"
+                                },
+                                "transportDestination": {
+                                    "facilityName": "Bayhealth Hospital - Kent Campus",
+                                    "streetAddress": "640 S State St",
+                                    "city": "Dover",
+                                    "state": "DE",
+                                    "zip": "19901-3530"
+                                },
+                                "balance": 205,
+                                "selfPosted": "",
+                                "insurancePosted": 863.4,
+                                "procedures": {
+                                    "procedure": [
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ground mileage",
+                                            "charge": 218.4,
+                                            "payment": 218.4
+                                        },
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ambulance, basic life support, emergency",
+                                            "charge": 850,
+                                            "payment": 645
+                                        }
+                                    ]
+                                },
+                                "billDetail": [
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 253",
+                                        "balance": 4.61
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 45",
+                                        "balance": 414.52
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Payment",
+                                        "detail": "Payment from CIGNA Medicare Advantage-Bravo (formerly\r\n                                    Elderhealth)",
+                                        "balance": 225.87
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 253",
+                                        "balance": 1.59
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 45",
+                                        "balance": 139.14
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Payment",
+                                        "detail": "Payment from CIGNA Medicare Advantage-Bravo (formerly\r\n                                    Elderhealth)",
+                                        "balance": 77.67
+                                    }
+                                ]
+                            }
+                        },
+                        "billing": {
+                            "amountTotal": 205,
+                            "amountCurrent": 205,
+                            "amount3160": 0,
+                            "amount6190": 0,
+                            "amount91120": 0,
+                            "amountOver120": 0,
+                            "totalPatientAmountBalance": 410
+                        },
+                        "notes": {
+                            "mainHeader": "",
+                            "mainBody": "This is your Co-Insurance Amount",
+                            "subHeader": "",
+                            "subBody": ""
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "mailingType": "Patient Statements",
+            "date": "07/24/2023",
+            "agency": {
+                "groupNumber": "9c0089b2-2235-ce6d-cc55-08d96e247d0e",
+                "subGroupNumber": "bb1d77f6-47ce-c5d6-dfa3-08d976e59b3a",
+                "address": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "900 Smyrna Clayton Blvd",
+                    "streetAddress2": "",
+                    "city": "Smyrna",
+                    "state": "Delaware",
+                    "zip": 19977,
+                    "zipPlus4": 2230
+                },
+                "fAXNumber": "864-902-9944",
+                "returnAddress": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "PO Box 3348",
+                    "city": "Spartanburg",
+                    "state": "SC",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "remitAddress": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "PO Box 3348",
+                    "streetAddress2": "",
+                    "city": "Spartanburg",
+                    "state": "South Carolina",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "patients": {
+                    "patient": {
+                        "accountNumber": "BAKSHI2001-1",
+                        "lastName": "BAKSHI",
+                        "firstName": "JEAN",
+                        "sSN": "876-44-8876",
+                        "doB": "01/20/1993",
+                        "sendTo": {
+                            "name": "JEAN S BAKSHI",
+                            "streetAddress": "556 S DuPont Blvd",
+                            "streetAddress2": "",
+                            "city": "Smyrna",
+                            "state": "Delaware",
+                            "zip": 19977,
+                            "zipPlus4": 1898,
+                            "phone": "302-698-9005"
+                        },
+                        "claims": {
+                            "claim": {
+                                "claimNumber": "23-206385-AMLAS",
+                                "incidentNumber": "2023-00641271",
+                                "dateOfService": "4/11/2023",
+                                "transportOrigin": {
+                                    "facilityName": "556 S DUPONT BLVD, Smyrna, DE, 19977",
+                                    "streetAddress": "556 S DUPONT BLVD",
+                                    "city": "Smyrna",
+                                    "state": "DE",
+                                    "zip": "19901-3530"
+                                },
+                                "transportDestination": {
+                                    "facilityName": "Bayhealth Hospital - Kent Campus",
+                                    "streetAddress": "640 S State St",
+                                    "city": "Dover",
+                                    "state": "DE",
+                                    "zip": "19901-3530"
+                                },
+                                "balance": 205,
+                                "selfPosted": "",
+                                "insurancePosted": 863.4,
+                                "procedures": {
+                                    "procedure": [
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ground mileage",
+                                            "charge": 218.4,
+                                            "payment": 218.4
+                                        },
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ambulance, basic life support, emergency",
+                                            "charge": 850,
+                                            "payment": 645
+                                        }
+                                    ]
+                                },
+                                "billDetail": [
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 253",
+                                        "balance": 4.61
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 45",
+                                        "balance": 414.52
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Payment",
+                                        "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                        "balance": 225.87
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 253",
+                                        "balance": 1.59
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Adjustment",
+                                        "detail": "Adjustment against CO - 45",
+                                        "balance": 139.14
+                                    },
+                                    {
+                                        "date": "07/24/2023",
+                                        "transactionType": "Payment",
+                                        "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                        "balance": 77.67
+                                    }
+                                ]
+                            }
+                        },
+                        "billing": {
+                            "amountTotal": 205,
+                            "amountCurrent": 205,
+                            "amount3160": 0,
+                            "amount6190": 0,
+                            "amount91120": 0,
+                            "amountOver120": 0,
+                            "totalPatientAmountBalance": 410
+                        },
+                        "notes": {
+                            "mainHeader": "",
+                            "mainBody": "This is your Co-Insurance Amount",
+                            "subHeader": "",
+                            "subBody": ""
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "mailingType": "Patient Statements",
+            "date": "07/24/2023",
+            "agency": {
+                "groupNumber": "9c0089b2-2235-ce6d-cc55-08d96e247d0e",
+                "subGroupNumber": "012274f5-184d-cd39-ee77-08d9792a9f13",
+                "address": {
+                    "name": "Community Ambulance Association of Ambler",
+                    "streetAddress": "1414 E Butler Pike",
+                    "streetAddress2": "",
+                    "city": "Ambler",
+                    "state": "Pennsylvania",
+                    "zip": 19002,
+                    "zipPlus4": 3764
+                },
+                "fAXNumber": "864-902-9944",
+                "returnAddress": {
+                    "name": "Community Ambulance Association of Ambler",
+                    "streetAddress": "PO Box 3348",
+                    "city": "Spartanburg",
+                    "state": "SC",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "remitAddress": {
+                    "name": "Community Ambulance Association of Ambler",
+                    "streetAddress": "PO Box 3348",
+                    "streetAddress2": "",
+                    "city": "Spartanburg",
+                    "state": "South Carolina",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "patients": {
+                    "patient": {
+                        "accountNumber": "FERRARO2306-6491",
+                        "lastName": "JACOB",
+                        "firstName": "JOHN",
+                        "sSN": "887-76-9987",
+                        "doB": "01/20/1968",
+                        "sendTo": {
+                            "name": "JOHN Jacob",
+                            "streetAddress": "57 W Milford Ave",
+                            "streetAddress2": "",
+                            "city": "Philadelphia",
+                            "state": "Pennsylvania",
+                            "zip": 19118,
+                            "zipPlus4": 4503,
+                            "phone": "267-414-3956"
+                        },
+                        "claims": {
+                            "claim": {
+                                "claimNumber": "23-240171-AMBLR",
+                                "incidentNumber": 2350018,
+                                "dateOfService": "7/18/2023",
+                                "transportOrigin": {
+                                    "facilityName": "Church Road and Ramp 309 NB to Rt 73, Oreland, PA,\r\n                                    19075",
+                                    "streetAddress": "Church Road and Ramp 309 NB to Rt 73",
+                                    "city": "Oreland",
+                                    "state": "PA",
+                                    "zip": 19001
+                                },
+                                "transportDestination": {
+                                    "facilityName": "Jefferson Health - Abington ? 1200 OLD YORK ROAD,\r\n                                    Abington, PA, 19001",
+                                    "streetAddress": "1200 OLD YORK ROAD",
+                                    "city": "Abington",
+                                    "state": "PA",
+                                    "zip": 19001
+                                },
+                                "balance": 2276.52,
+                                "selfPosted": "",
+                                "insurancePosted": 0,
+                                "procedures": {
+                                    "procedure": [
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ambulance, advanced life support, emergency, ALS 1 ",
+                                            "charge": 2148,
+                                            "payment": 0
+                                        },
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ground mileage",
+                                            "charge": 128.52,
+                                            "payment": 0
+                                        }
+                                    ]
+                                },
+                                "billDetail": {
+                                    "date": "",
+                                    "transactionType": "",
+                                    "payer": "",
+                                    "transactionNumber": "",
+                                    "detail": "",
+                                    "balance": ""
+                                }
+                            }
+                        },
+                        "billing": {
+                            "amountTotal": 2276.52,
+                            "amountCurrent": 2276.52,
+                            "amount3160": 0,
+                            "amount6190": 0,
+                            "amount91120": 0,
+                            "amountOver120": 0,
+                            "totalPatientAmountBalance": 2276.52
+                        },
+                        "notes": {
+                            "mainHeader": "",
+                            "mainBody": "",
+                            "subHeader": "",
+                            "subBody": ""
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "mailingType": "Patient Statements",
+            "date": "07/24/2023",
+            "agency": {
+                "groupNumber": "9c0089b2-2235-ce6d-cc55-08d96e247d0e",
+                "subGroupNumber": "012274f5-184d-cd39-ee77-08d9792a9f13",
+                "address": {
+                    "name": "Community Ambulance Association of Ambler",
+                    "streetAddress": "1414 E Butler Pike",
+                    "streetAddress2": "",
+                    "city": "Ambler",
+                    "state": "Pennsylvania",
+                    "zip": 19002,
+                    "zipPlus4": 3764
+                },
+                "fAXNumber": "864-902-9944",
+                "returnAddress": {
+                    "name": "Community Ambulance Association of Ambler",
+                    "streetAddress": "PO Box 3348",
+                    "city": "Spartanburg",
+                    "state": "SC",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "remitAddress": {
+                    "name": "Community Ambulance Association of Ambler",
+                    "streetAddress": "PO Box 3348",
+                    "streetAddress2": "",
+                    "city": "Spartanburg",
+                    "state": "South Carolina",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "patients": {
+                    "patient": {
+                        "accountNumber": "JIRMIKE-1",
+                        "lastName": "JIRA",
+                        "firstName": "MIKE",
+                        "sSN": "333-76-7654",
+                        "doB": "04/15/1980",
+                        "sendTo": {
+                            "name": "Mike D Jira",
+                            "streetAddress": "445 Southwest Rd",
+                            "streetAddress2": "",
+                            "city": "Ambler",
+                            "state": "Pennsylvania",
+                            "zip": 19002,
+                            "zipPlus4": 2626,
+                            "phone": "215-591-9092"
+                        },
+                        "claims": {
+                            "claim": {
+                                "claimNumber": "23-240175-AMBLR",
+                                "incidentNumber": 2350133,
+                                "dateOfService": "7/18/2023",
+                                "transportOrigin": {
+                                    "facilityName": "445 Southwest Rd, Ambler, PA, 19002",
+                                    "streetAddress": "445 Southwest Rd",
+                                    "city": "Ambler",
+                                    "state": "PA",
+                                    "zip": 19001
+                                },
+                                "transportDestination": {
+                                    "facilityName": "Jefferson Health - Abington ? 1200 OLD YORK ROAD,\r\n                                    Abington, PA, 19001",
+                                    "streetAddress": "1200 OLD YORK ROAD",
+                                    "city": "Abington",
+                                    "state": "PA",
+                                    "zip": 19001
+                                },
+                                "balance": 2380.56,
+                                "selfPosted": "",
+                                "insurancePosted": 0,
+                                "procedures": {
+                                    "procedure": [
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ambulance, advanced life support, emergency, ALS 1 ",
+                                            "charge": 2148,
+                                            "payment": 0
+                                        },
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ground mileage",
+                                            "charge": 232.56,
+                                            "payment": 0
+                                        }
+                                    ]
+                                },
+                                "billDetail": {
+                                    "date": "",
+                                    "transactionType": "",
+                                    "payer": "",
+                                    "transactionNumber": "",
+                                    "detail": "",
+                                    "balance": ""
+                                }
+                            }
+                        },
+                        "billing": {
+                            "amountTotal": 2380.56,
+                            "amountCurrent": 2380.56,
+                            "amount3160": 0,
+                            "amount6190": 0,
+                            "amount91120": 0,
+                            "amountOver120": 0,
+                            "totalPatientAmountBalance": 7178.4
+                        },
+                        "notes": {
+                            "mainHeader": "",
+                            "mainBody": "",
+                            "subHeader": "",
+                            "subBody": ""
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "mailingType": "Patient Statements",
+            "date": "07/24/2023",
+            "agency": {
+                "groupNumber": "9c0089b2-2235-ce6d-cc55-08d96e247d0e",
+                "subGroupNumber": "012274f5-184d-cd39-ee77-08d9792a9f13",
+                "address": {
+                    "name": "Community Ambulance Association of Ambler",
+                    "streetAddress": "1414 E Butler Pike",
+                    "streetAddress2": "",
+                    "city": "Ambler",
+                    "state": "Pennsylvania",
+                    "zip": 19002,
+                    "zipPlus4": 3764
+                },
+                "fAXNumber": "864-902-9944",
+                "returnAddress": {
+                    "name": "Community Ambulance Association of Ambler",
+                    "streetAddress": "PO Box 3348",
+                    "city": "Spartanburg",
+                    "state": "SC",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "remitAddress": {
+                    "name": "Community Ambulance Association of Ambler",
+                    "streetAddress": "PO Box 3348",
+                    "streetAddress2": "",
+                    "city": "Spartanburg",
+                    "state": "South Carolina",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "patients": {
+                    "patient": {
+                        "accountNumber": "ELLA0809-D713",
+                        "lastName": "ELLA",
+                        "firstName": "AMBER",
+                        "sSN": "284-39-3333",
+                        "doB": "09/07/1998",
+                        "sendTo": {
+                            "name": "AMBER ELLA",
+                            "streetAddress": "22 CLAIMSMITH Rd",
+                            "streetAddress2": "",
+                            "city": "Eagleville",
+                            "state": "Pennsylvania",
+                            "zip": 19403,
+                            "zipPlus4": 4726
+                        },
+                        "claims": {
+                            "claim": {
+                                "claimNumber": "23-240179-AMBLR",
+                                "incidentNumber": "2350234A",
+                                "dateOfService": "9/22/2023",
+                                "transportOrigin": {
+                                    "facilityName": "880 Penllyn Blue Bell Pike, Blue Bell, PA, 19422",
+                                    "streetAddress": "880 Penllyn Blue Bell Pike",
+                                    "city": "Blue Bell",
+                                    "state": "PA",
+                                    "zip": 19001
+                                },
+                                "transportDestination": {
+                                    "facilityName": "Jefferson Health - Abington ? 1200 OLD YORK ROAD,\r\n                                    Abington, PA, 19001",
+                                    "streetAddress": "1200 OLD YORK ROAD",
+                                    "city": "Abington",
+                                    "state": "PA",
+                                    "zip": 19001
+                                },
+                                "balance": 2447.88,
+                                "selfPosted": "",
+                                "insurancePosted": 0,
+                                "procedures": {
+                                    "procedure": [
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ambulance, advanced life support, emergency, ALS 1 ",
+                                            "charge": 2148,
+                                            "payment": 0
+                                        },
+                                        {
+                                            "code": "DEFAULT",
+                                            "description": "Ground mileage",
+                                            "charge": 299.88,
+                                            "payment": 0
+                                        }
+                                    ]
+                                },
+                                "billDetail": {
+                                    "date": "",
+                                    "transactionType": "",
+                                    "payer": "",
+                                    "transactionNumber": "",
+                                    "detail": "",
+                                    "balance": ""
+                                }
+                            }
+                        },
+                        "billing": {
+                            "amountTotal": 2447.88,
+                            "amountCurrent": 2447.88,
+                            "amount3160": 0,
+                            "amount6190": 0,
+                            "amount91120": 0,
+                            "amountOver120": 0,
+                            "totalPatientAmountBalance": 2447.88
+                        },
+                        "notes": {
+                            "mainHeader": "NEED_INS",
+                            "mainBody": "Insurance not on file. If you have health insurance, please update\r\n                            our records using one of the methods provided. Otherwise, please remit\r\n                            payment.",
                             "subHeader": "",
                             "subBody": ""
                         }
