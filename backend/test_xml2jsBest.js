@@ -22,7 +22,6 @@ const createJson = () => {
   let readData = readFromFile("patient_xml.xml");
 
   parser.parseString(readData, (err, res) => {
-    console.log("inside here");
     writeToFile("patient_json.json", JSON.stringify(res));
     console.log("finished");
   });
@@ -30,8 +29,6 @@ const createJson = () => {
 
 const refineJson = () => {
   let readData = JSON.parse(readFromFile("patient_json.json"));
-
-  //   console.log(readData.MailingBatch.MailingGroup[0]);
   //loop through the mailgroup array
   let theBiggerObj = {};
   let theBiggerArray = [];
@@ -47,13 +44,11 @@ const refineJson = () => {
 
     theBiggerArray.push(updatedPatient);
 
-    // console.log("updated", updatedPatient);
     // writeToFile("test_my_patienr.json", JSON.stringify(updatedPatient));
     //   Object.assign(updatedPatient, {})
     break;
   }
 
-  // console.log("elements added ", i);
   Object.assign(theBiggerObj, { mailingGroup: theBiggerArray });
   writeToFile("test_all_patients.json", JSON.stringify(theBiggerObj));
 };
@@ -73,25 +68,11 @@ const getJsonValue = (val) => {
           let entries = Object.entries(item);
 
           for (const [kk, vv] of entries) {
-            //   console.log(" kk got is ",k, kk, vv, getJsonValue(vv[0]));
-            // if (kk === "transportorigin")
-            //   console.log("finally transportorigin");
             Object.assign(itemObj, { [kk]: getJsonValue(vv[0]) });
           }
-          // procedure
-          // if (k === "billdetail")
-          //   console.log("itemObj ", itemObj, "VEEE ", v);
           vObj.push(itemObj);
-          //   console.log("finally vObj ", Array.toString(vObj));
-          //   console.log("inside got itemObj ", k, itemObj, vObj);
         }
-        if (k === "billdetail") console.log("itemObj ", vObj, "VEEE ", v);
-        if (k === "procedure")
-          console.log("procedure Obj ", vObj, "VEEE procedure ", v);
-
-        Object.assign(obj, { [k]: vObj });
       } else {
-        // if (k === "claim") console.log("claim", JSON.stringify(v))
         Object.assign(obj, { [k]: getJsonValue(v[0]) });
       }
     }
