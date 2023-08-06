@@ -10,12 +10,12 @@ let parser = new xml2js.Parser({
   tagNameProcessors: [xml2js.processors.firstCharLowerCase],
   // attrNameProcessors: [toLower],
   // valueProcessors: [toLower],
-  // valueProcessors: [
-  //   xml2js.processors.parseBooleans,
-  //   xml2js.processors.parseNumbers,
-  // ],
+  valueProcessors: [
+    xml2js.processors.parseBooleans,
+    xml2js.processors.parseNumbers,
+  ],
   // attrValueProcessors: [toLower],
-  normalize: true,
+  // normalize: true,
 });
 
 const createJson = () => {
@@ -50,7 +50,7 @@ const refineJson = () => {
     // console.log("updated", updatedPatient);
     // writeToFile("test_my_patienr.json", JSON.stringify(updatedPatient));
     //   Object.assign(updatedPatient, {})
-    break;
+    // break;
   }
 
   // console.log("elements added ", i);
@@ -60,7 +60,12 @@ const refineJson = () => {
 
 const getJsonValue = (val) => {
   let obj = {};
-  if (typeof val === "string") return val;
+  if (
+    typeof val === "string" ||
+    typeof val === "number" ||
+    typeof val === "boolean"
+  )
+    return val; // patien
 
   if (typeof val === "object") {
     let entries = Object.entries(val);
@@ -73,25 +78,13 @@ const getJsonValue = (val) => {
           let entries = Object.entries(item);
 
           for (const [kk, vv] of entries) {
-            //   console.log(" kk got is ",k, kk, vv, getJsonValue(vv[0]));
-            // if (kk === "transportorigin")
-            //   console.log("finally transportorigin");
             Object.assign(itemObj, { [kk]: getJsonValue(vv[0]) });
           }
-          // procedure
-          // if (k === "billdetail")
-          //   console.log("itemObj ", itemObj, "VEEE ", v);
           vObj.push(itemObj);
-          //   console.log("finally vObj ", Array.toString(vObj));
-          //   console.log("inside got itemObj ", k, itemObj, vObj);
         }
-        if (k === "billdetail") console.log("itemObj ", vObj, "VEEE ", v);
-        if (k === "procedure")
-          console.log("procedure Obj ", vObj, "VEEE procedure ", v);
 
         Object.assign(obj, { [k]: vObj });
       } else {
-        // if (k === "claim") console.log("claim", JSON.stringify(v))
         Object.assign(obj, { [k]: getJsonValue(v[0]) });
       }
     }
@@ -110,5 +103,5 @@ const readFromFile = (filename) => {
 
 // calling createJson()
 
-// createJson();
+createJson();
 refineJson();

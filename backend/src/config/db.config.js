@@ -1,11 +1,10 @@
 const mongoose = require('mongoose')
 
-module.exports = async() => {
+module.exports = async(cb) => {
     try {
         await mongoose.connect(process.env.MONGO_URL)
-        console.log("Successfully connected to database")
+        cb("Successfully connected to database", null)
     } catch (error) {
-        console.log("Eroor Occurred: Check your connection string")
-        process.exit(1)
+        cb("Error Occurred: Check your connection URI", error)
     }
 }

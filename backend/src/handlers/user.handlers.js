@@ -1,4 +1,4 @@
-const jwt = require("jsonwebtoken");
+const { createToken } = require("../helpers/jwt.helper");
 
 const dbHelpers = require("../helpers/db.helpers");
 
@@ -13,7 +13,7 @@ const registerUser = async (req, res) => {
 
   // check if username already exists
   const user = await dbHelpers.getUser({ username });
-  if (user) {
+  if (user.length != 0) {
     res.status(409).json({ message: "Username already exists" });
     return;
   }
@@ -34,6 +34,7 @@ const loginUser = async (req, res) => {
   }
 
   const success = await dbHelpers.checkUserCredentials(req.body);
+  console.log("success ", success);
 
   //create jwt token
   // 1. payload
@@ -42,8 +43,12 @@ const loginUser = async (req, res) => {
     username,
   };
 
+  const opts = {
+    expiresIn: "5m",
+  };
+
   // signing the token
-  const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "5m" });
+  const token = createToken(payload, opts);
 
   //register username and token in cookies
   res.cookie("username-token", JSON.stringify({ username, token }), {
@@ -62,14 +67,14 @@ const loginUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   const { username } = req.params;
 
-  if (!id) {
+  if (!username) {
     res.status(400).json({ message: "Username must be provided" });
     return;
   }
 
   //check if that user exists
   const user = await dbHelpers.getUser({ username });
-  if (!user) {
+  if (user.length == 0) {
     res
       .status(404)
       .json({ message: "User does not exist. Confirm username first" });
@@ -100,7 +105,7 @@ const updateUserPass = async (req, res) => {
 
   //check if that user exists
   const user = await dbHelpers.getUser({ username });
-  if (!user) {
+  if (user.length == 0) {
     res
       .status(404)
       .json({ message: "User does not exist. Confirm username first" });
@@ -110,8 +115,8 @@ const updateUserPass = async (req, res) => {
   //update the user pass
   const success = await dbHelpers.changeUserPass(username, req.body);
 
-  if (success) res.status(200).json({ message: "User deleted successfully" });
-  else res.status(400).json({ message: "Error deleting user" });
+  if (success) res.status(200).json({ message: "User updated successfully" });
+  else res.status(400).json({ message: "Error updating user" });
 };
 
 module.exports = { registerUser, loginUser, deleteUser, updateUserPass };

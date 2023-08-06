@@ -11,6 +11,7 @@ const createUser = async (body) => {
 const getUser = async (props) => {
   try {
     const user = await User.find({ ...props });
+    console.log("user got", user)
     return user;
   } catch (error) {
     return null;
@@ -21,7 +22,7 @@ const getUser = async (props) => {
 const checkUserCredentials = async (props) => {
   try {
     const found = await User.find({ ...props });
-    if (found.length < 1) throw new Error("User not found");
+    if (found.length == 0) throw new Error("User not found");
     return true;
   } catch (error) {
     return false;

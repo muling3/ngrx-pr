@@ -1,4 +1,4 @@
-const jwt = require("jsonwebtoken");
+const { verifyToken } = require("../helpers/jwt.helper");
 const TokenExpiredError = require("jsonwebtoken").TokenExpiredError;
 const JsonWebTokenError = require("jsonwebtoken").JsonWebTokenError;
 
@@ -15,8 +15,8 @@ module.exports = async (req, res, next) => {
 
   //verify the token
   try {
-    var decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log(decoded.payload);
+    var decoded = verifyToken(token);
+    console.log("Decoded -> ", decoded.username, "Token -> ", token);
   } catch (error) {
     if (error instanceof TokenExpiredError) {
       res.status(403).json({
@@ -32,7 +32,7 @@ module.exports = async (req, res, next) => {
   }
 
   // pass the username in the req headers
-  req.username = decoded.payload.username;
+  req.username = decoded.username;
 
   //call the next
   next();
