@@ -1,0 +1,261 @@
+{
+    "mailingGroup": [
+        {
+            "mailingType": "Patient Statements",
+            "date": "07/24/2023",
+            "agency": {
+                "groupNumber": "9c0089b2-2235-ce6d-cc55-08d96e247d0e",
+                "subGroupNumber": "bb1d77f6-47ce-c5d6-dfa3-08d976e59b3a",
+                "address": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "900 Smyrna Clayton Blvd",
+                    "streetAddress2": "",
+                    "city": "Smyrna",
+                    "state": "Delaware",
+                    "zip": 19977,
+                    "zipPlus4": 2230
+                },
+                "fAXNumber": "864-902-9944",
+                "returnAddress": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "PO Box 3348",
+                    "city": "Spartanburg",
+                    "state": "SC",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "remitAddress": {
+                    "name": "American Legion Ambulance Services",
+                    "streetAddress": "PO Box 3348",
+                    "streetAddress2": "",
+                    "city": "Spartanburg",
+                    "state": "South Carolina",
+                    "zip": 29304,
+                    "zipPlus4": 3348
+                },
+                "patients": {
+                    "patient": [
+                        {
+                            "accountNumber": "Test1123",
+                            "lastName": "Test",
+                            "firstName": 123,
+                            "sSN": "919-00-9988",
+                            "doB": "03/18/1978",
+                            "sendTo": {
+                                "name": "GA",
+                                "streetAddress": "400 Hopewell Dr",
+                                "streetAddress2": "",
+                                "city": "Clayton",
+                                "state": "Delaware",
+                                "zip": 19938,
+                                "zipPlus4": 2226
+                            },
+                            "claims": {
+                                "claim": {
+                                    "claimNumber": "23-215092-AMLAS",
+                                    "incidentNumber": "2023-00641600",
+                                    "dateOfService": "5/7/2023",
+                                    "transportOrigin": {
+                                        "facilityName": "400 HOPEWELL DR, Clayton, DE, 19938",
+                                        "streetAddress": "400 HOPEWELL DR",
+                                        "city": "Clayton",
+                                        "state": "DE",
+                                        "zip": "19901-3530"
+                                    },
+                                    "transportDestination": {
+                                        "facilityName": "Bayhealth Hospital - Kent Campus",
+                                        "streetAddress": "640 S State St",
+                                        "city": "Dover",
+                                        "state": "DE",
+                                        "zip": "19901-3530"
+                                    },
+                                    "balance": 205,
+                                    "selfPosted": "",
+                                    "insurancePosted": 981,
+                                    "procedures": {
+                                        "procedure": [
+                                            {
+                                                "code": "DEFAULT",
+                                                "description": "Ambulance, basic life support, emergency",
+                                                "charge": 850,
+                                                "payment": 645
+                                            },
+                                            {
+                                                "code": "DEFAULT",
+                                                "description": "Ambulance, basic life support, emergency",
+                                                "charge": 850,
+                                                "payment": 645
+                                            }
+                                        ]
+                                    },
+                                    "billDetail": [
+                                        {
+                                            "date": "07/24/2023",
+                                            "transactionType": "Payment",
+                                            "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                            "balance": 119.5
+                                        },
+                                        {
+                                            "date": "07/24/2023",
+                                            "transactionType": "Payment",
+                                            "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                            "balance": 119.5
+                                        },
+                                        {
+                                            "date": "07/24/2023",
+                                            "transactionType": "Payment",
+                                            "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                            "balance": 119.5
+                                        },
+                                        {
+                                            "date": "07/24/2023",
+                                            "transactionType": "Payment",
+                                            "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                            "balance": 119.5
+                                        },
+                                        {
+                                            "date": "07/24/2023",
+                                            "transactionType": "Payment",
+                                            "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                            "balance": 119.5
+                                        },
+                                        {
+                                            "date": "07/24/2023",
+                                            "transactionType": "Payment",
+                                            "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                            "balance": 119.5
+                                        }
+                                    ]
+                                }
+                            },
+                            "billing": {
+                                "amountTotal": 205,
+                                "amountCurrent": 205,
+                                "amount3160": 0,
+                                "amount6190": 0,
+                                "amount91120": 0,
+                                "amountOver120": 0,
+                                "totalPatientAmountBalance": 205
+                            },
+                            "notes": {
+                                "mainHeader": "",
+                                "mainBody": "This is your Co-Insurance Amount",
+                                "subHeader": "",
+                                "subBody": ""
+                            }
+                        },
+                        {
+                            "accountNumber": "Test1123",
+                            "lastName": "Test",
+                            "firstName": 123,
+                            "sSN": "919-00-9988",
+                            "doB": "03/18/1978",
+                            "sendTo": {
+                                "name": "GA",
+                                "streetAddress": "400 Hopewell Dr",
+                                "streetAddress2": "",
+                                "city": "Clayton",
+                                "state": "Delaware",
+                                "zip": 19938,
+                                "zipPlus4": 2226
+                            },
+                            "claims": {
+                                "claim": {
+                                    "claimNumber": "23-215092-AMLAS",
+                                    "incidentNumber": "2023-00641600",
+                                    "dateOfService": "5/7/2023",
+                                    "transportOrigin": {
+                                        "facilityName": "400 HOPEWELL DR, Clayton, DE, 19938",
+                                        "streetAddress": "400 HOPEWELL DR",
+                                        "city": "Clayton",
+                                        "state": "DE",
+                                        "zip": "19901-3530"
+                                    },
+                                    "transportDestination": {
+                                        "facilityName": "Bayhealth Hospital - Kent Campus",
+                                        "streetAddress": "640 S State St",
+                                        "city": "Dover",
+                                        "state": "DE",
+                                        "zip": "19901-3530"
+                                    },
+                                    "balance": 205,
+                                    "selfPosted": "",
+                                    "insurancePosted": 981,
+                                    "procedures": {
+                                        "procedure": [
+                                            {
+                                                "code": "DEFAULT",
+                                                "description": "Ambulance, basic life support, emergency",
+                                                "charge": 850,
+                                                "payment": 645
+                                            },
+                                            {
+                                                "code": "DEFAULT",
+                                                "description": "Ambulance, basic life support, emergency",
+                                                "charge": 850,
+                                                "payment": 645
+                                            }
+                                        ]
+                                    },
+                                    "billDetail": [
+                                        {
+                                            "date": "07/24/2023",
+                                            "transactionType": "Payment",
+                                            "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                            "balance": 119.5
+                                        },
+                                        {
+                                            "date": "07/24/2023",
+                                            "transactionType": "Payment",
+                                            "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                            "balance": 119.5
+                                        },
+                                        {
+                                            "date": "07/24/2023",
+                                            "transactionType": "Payment",
+                                            "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                            "balance": 119.5
+                                        },
+                                        {
+                                            "date": "07/24/2023",
+                                            "transactionType": "Payment",
+                                            "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                            "balance": 119.5
+                                        },
+                                        {
+                                            "date": "07/24/2023",
+                                            "transactionType": "Payment",
+                                            "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                            "balance": 119.5
+                                        },
+                                        {
+                                            "date": "07/24/2023",
+                                            "transactionType": "Payment",
+                                            "detail": "Payment from Cigna Healthspring Medicare Advantage",
+                                            "balance": 119.5
+                                        }
+                                    ]
+                                }
+                            },
+                            "billing": {
+                                "amountTotal": 205,
+                                "amountCurrent": 205,
+                                "amount3160": 0,
+                                "amount6190": 0,
+                                "amount91120": 0,
+                                "amountOver120": 0,
+                                "totalPatientAmountBalance": 205
+                            },
+                            "notes": {
+                                "mainHeader": "",
+                                "mainBody": "This is your Co-Insurance Amount",
+                                "subHeader": "",
+                                "subBody": ""
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

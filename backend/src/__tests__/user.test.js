@@ -9,6 +9,7 @@ require("dotenv").config();
 /* Connecting to the database before each test. */
 beforeEach(async () => {
   await mongoose.connect(process.env.MONGO_TEST_URL);
+  // await User.deleteOne({ username: "LGraham" });
 });
 
 /* Cleaning && Closing database after each test. */
