@@ -16,7 +16,6 @@ module.exports = async (req, res, next) => {
   //verify the token
   try {
     var decoded = verifyToken(token);
-    console.log("Decoded -> ", decoded.username, "Token -> ", token);
   } catch (error) {
     if (error instanceof TokenExpiredError) {
       res.status(403).json({

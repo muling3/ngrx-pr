@@ -100,7 +100,7 @@ const updateUserPass = async (req, res) => {
     res.status(400).json({ message: "Body can't be empty" });
     return;
   }
-
+ 
   //check if that user exists
   const user = await dbHelpers.getUser({ username });
   if (!user) {
