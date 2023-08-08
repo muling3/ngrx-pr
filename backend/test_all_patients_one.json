@@ -1094,85 +1094,166 @@
                     "zipPlus4": 3348
                 },
                 "patients": {
-                    "patient": {
-                        "accountNumber": "ELLA0809-D713",
-                        "lastName": "ELLA",
-                        "firstName": "AMBER",
-                        "sSN": "284-39-3333",
-                        "doB": "09/07/1998",
-                        "sendTo": {
-                            "name": "AMBER ELLA",
-                            "streetAddress": "22 CLAIMSMITH Rd",
-                            "streetAddress2": "",
-                            "city": "Eagleville",
-                            "state": "Pennsylvania",
-                            "zip": 19403,
-                            "zipPlus4": 4726
-                        },
-                        "claims": {
-                            "claim": {
-                                "claimNumber": "23-240179-AMBLR",
-                                "incidentNumber": "2350234A",
-                                "dateOfService": "9/22/2023",
-                                "transportOrigin": {
-                                    "facilityName": "880 Penllyn Blue Bell Pike, Blue Bell, PA, 19422",
-                                    "streetAddress": "880 Penllyn Blue Bell Pike",
-                                    "city": "Blue Bell",
-                                    "state": "PA",
-                                    "zip": 19001
-                                },
-                                "transportDestination": {
-                                    "facilityName": "Jefferson Health - Abington ? 1200 OLD YORK ROAD,\r\n                                    Abington, PA, 19001",
-                                    "streetAddress": "1200 OLD YORK ROAD",
-                                    "city": "Abington",
-                                    "state": "PA",
-                                    "zip": 19001
-                                },
-                                "balance": 2447.88,
-                                "selfPosted": "",
-                                "insurancePosted": 0,
-                                "procedures": {
-                                    "procedure": [
-                                        {
-                                            "code": "DEFAULT",
-                                            "description": "Ambulance, advanced life support, emergency, ALS 1 ",
-                                            "charge": 2148,
-                                            "payment": 0
-                                        },
-                                        {
-                                            "code": "DEFAULT",
-                                            "description": "Ground mileage",
-                                            "charge": 299.88,
-                                            "payment": 0
-                                        }
-                                    ]
-                                },
-                                "billDetail": {
-                                    "date": "",
-                                    "transactionType": "",
-                                    "payer": "",
-                                    "transactionNumber": "",
-                                    "detail": "",
-                                    "balance": ""
+                    "patient": [
+                        {
+                            "accountNumber": "ELLA0809-D713",
+                            "lastName": "ELLA",
+                            "firstName": "AMBER",
+                            "sSN": "284-39-3333",
+                            "doB": "09/07/1998",
+                            "sendTo": {
+                                "name": "AMBER ELLA",
+                                "streetAddress": "22 CLAIMSMITH Rd",
+                                "streetAddress2": "",
+                                "city": "Eagleville",
+                                "state": "Pennsylvania",
+                                "zip": 19403,
+                                "zipPlus4": 4726
+                            },
+                            "claims": {
+                                "claim": {
+                                    "claimNumber": "23-240179-AMBLR",
+                                    "incidentNumber": "2350234A",
+                                    "dateOfService": "9/22/2023",
+                                    "transportOrigin": {
+                                        "facilityName": "880 Penllyn Blue Bell Pike, Blue Bell, PA, 19422",
+                                        "streetAddress": "880 Penllyn Blue Bell Pike",
+                                        "city": "Blue Bell",
+                                        "state": "PA",
+                                        "zip": 19001
+                                    },
+                                    "transportDestination": {
+                                        "facilityName": "Jefferson Health - Abington ? 1200 OLD YORK ROAD,\r\n                                    Abington, PA, 19001",
+                                        "streetAddress": "1200 OLD YORK ROAD",
+                                        "city": "Abington",
+                                        "state": "PA",
+                                        "zip": 19001
+                                    },
+                                    "balance": 2447.88,
+                                    "selfPosted": "",
+                                    "insurancePosted": 0,
+                                    "procedures": {
+                                        "procedure": [
+                                            {
+                                                "code": "DEFAULT",
+                                                "description": "Ambulance, advanced life support, emergency, ALS 1 ",
+                                                "charge": 2148,
+                                                "payment": 0
+                                            },
+                                            {
+                                                "code": "DEFAULT",
+                                                "description": "Ground mileage",
+                                                "charge": 299.88,
+                                                "payment": 0
+                                            }
+                                        ]
+                                    },
+                                    "billDetail": {
+                                        "date": "",
+                                        "transactionType": "",
+                                        "payer": "",
+                                        "transactionNumber": "",
+                                        "detail": "",
+                                        "balance": ""
+                                    }
                                 }
+                            },
+                            "billing": {
+                                "amountTotal": 2447.88,
+                                "amountCurrent": 2447.88,
+                                "amount3160": 0,
+                                "amount6190": 0,
+                                "amount91120": 0,
+                                "amountOver120": 0,
+                                "totalPatientAmountBalance": 2447.88
+                            },
+                            "notes": {
+                                "mainHeader": "NEED_INS",
+                                "mainBody": "Insurance not on file. If you have health insurance, please update\r\n                            our records using one of the methods provided. Otherwise, please remit\r\n                            payment.",
+                                "subHeader": "",
+                                "subBody": ""
                             }
                         },
-                        "billing": {
-                            "amountTotal": 2447.88,
-                            "amountCurrent": 2447.88,
-                            "amount3160": 0,
-                            "amount6190": 0,
-                            "amount91120": 0,
-                            "amountOver120": 0,
-                            "totalPatientAmountBalance": 2447.88
-                        },
-                        "notes": {
-                            "mainHeader": "NEED_INS",
-                            "mainBody": "Insurance not on file. If you have health insurance, please update\r\n                            our records using one of the methods provided. Otherwise, please remit\r\n                            payment.",
-                            "subHeader": "",
-                            "subBody": ""
+                        {
+                            "accountNumber": "ELLA0809-D713",
+                            "lastName": "ELLA",
+                            "firstName": "AMBER",
+                            "sSN": "284-39-3333",
+                            "doB": "09/07/1998",
+                            "sendTo": {
+                                "name": "AMBER ELLA",
+                                "streetAddress": "22 CLAIMSMITH Rd",
+                                "streetAddress2": "",
+                                "city": "Eagleville",
+                                "state": "Pennsylvania",
+                                "zip": 19403,
+                                "zipPlus4": 4726
+                            },
+                            "claims": {
+                                "claim": {
+                                    "claimNumber": "23-240179-AMBLR",
+                                    "incidentNumber": "2350234A",
+                                    "dateOfService": "9/22/2023",
+                                    "transportOrigin": {
+                                        "facilityName": "880 Penllyn Blue Bell Pike, Blue Bell, PA, 19422",
+                                        "streetAddress": "880 Penllyn Blue Bell Pike",
+                                        "city": "Blue Bell",
+                                        "state": "PA",
+                                        "zip": 19001
+                                    },
+                                    "transportDestination": {
+                                        "facilityName": "Jefferson Health - Abington ? 1200 OLD YORK ROAD,\r\n                                    Abington, PA, 19001",
+                                        "streetAddress": "1200 OLD YORK ROAD",
+                                        "city": "Abington",
+                                        "state": "PA",
+                                        "zip": 19001
+                                    },
+                                    "balance": 2447.88,
+                                    "selfPosted": "",
+                                    "insurancePosted": 0,
+                                    "procedures": {
+                                        "procedure": [
+                                            {
+                                                "code": "DEFAULT",
+                                                "description": "Ambulance, advanced life support, emergency, ALS 1 ",
+                                                "charge": 2148,
+                                                "payment": 0
+                                            },
+                                            {
+                                                "code": "DEFAULT",
+                                                "description": "Ground mileage",
+                                                "charge": 299.88,
+                                                "payment": 0
+                                            }
+                                        ]
+                                    },
+                                    "billDetail": {
+                                        "date": "",
+                                        "transactionType": "",
+                                        "payer": "",
+                                        "transactionNumber": "",
+                                        "detail": "",
+                                        "balance": ""
+                                    }
+                                }
+                            },
+                            "billing": {
+                                "amountTotal": 2447.88,
+                                "amountCurrent": 2447.88,
+                                "amount3160": 0,
+                                "amount6190": 0,
+                                "amount91120": 0,
+                                "amountOver120": 0,
+                                "totalPatientAmountBalance": 2447.88
+                            },
+                            "notes": {
+                                "mainHeader": "NEED_INS",
+                                "mainBody": "Insurance not on file. If you have health insurance, please update\r\n                            our records using one of the methods provided. Otherwise, please remit\r\n                            payment.",
+                                "subHeader": "",
+                                "subBody": ""
+                            }
                         }
-                    }
+                    ]
                 }
             }
         }

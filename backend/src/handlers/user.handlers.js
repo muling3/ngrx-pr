@@ -13,7 +13,7 @@ const registerUser = async (req, res) => {
 
   // check if username already exists
   const user = await dbHelpers.getUser({ username });
-  if (user.length != 0) {
+  if (user) {
     res.status(409).json({ message: "Username already exists" });
     return;
   }
@@ -34,10 +34,8 @@ const loginUser = async (req, res) => {
   }
 
   const success = await dbHelpers.checkUserCredentials(req.body);
-  console.log("success ", success);
 
   //create jwt token
-  // 1. payload
   const payload = {
     iss: "localhost",
     username,
@@ -74,7 +72,7 @@ const deleteUser = async (req, res) => {
 
   //check if that user exists
   const user = await dbHelpers.getUser({ username });
-  if (user.length == 0) {
+  if (!user) {
     res
       .status(404)
       .json({ message: "User does not exist. Confirm username first" });
@@ -102,10 +100,10 @@ const updateUserPass = async (req, res) => {
     res.status(400).json({ message: "Body can't be empty" });
     return;
   }
-
+ 
   //check if that user exists
   const user = await dbHelpers.getUser({ username });
-  if (user.length == 0) {
+  if (!user) {
     res
       .status(404)
       .json({ message: "User does not exist. Confirm username first" });

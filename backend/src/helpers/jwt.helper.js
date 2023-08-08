@@ -6,7 +6,6 @@ const createToken = (payload, options) => {
 
 const verifyToken = (token) => {
   let decoded = jwt.verify(token, process.env.JWT_SECRET);
-  console.log("decoded -> ", decoded);
   return decoded;
 };
 
