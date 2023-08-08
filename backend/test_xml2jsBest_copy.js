@@ -45,7 +45,7 @@ const refineJson = () => {
     }
 
     theBiggerArray.push(updatedPatient);
-    break;
+    // break;
   }
 
   // console.log("elements added ", i);
@@ -54,37 +54,69 @@ const refineJson = () => {
 };
 
 const cleanJSON = (val) => {
-  let obj = {};
-  if (typeof val === "string" || typeof val === "number") return val;
+  if (typeof val === "string" || typeof val === "number") {
+    return val;
+  }
+
+  if (Array.isArray(val)) {
+    return val.map(item => {
+      let itemObj = {}; // Create a new object for each item
+      for (const [kk, vv] of Object.entries(item)) {
+        itemObj[kk] = cleanJSON(vv);
+      }
+      return itemObj;
+    });
+  }
 
   if (typeof val === "object") {
-    console.log(
-      "VAL ",
-      Object.keys(val),
-      "v ",
-      Object.keys(val).length
-    );
-    for (const [k, v] of Object.entries(val)) {
-      //check where the v is an array
-      if (Array.isArray(v)) {
-        let list = [];
-        let itemObj = {};
-        console.log("v ", k)
-        for (const item of v) {
-          for (const [kk, vv] of Object.entries(item)) {
-            Object.assign(itemObj, { [kk]: cleanJSON(vv) });
-          }
-          list.push(itemObj);
-        }
+    const keys = Object.keys(val);
 
-        Object.assign(obj, { [k]: list });
-      } else {
-        Object.assign(obj, { [k]: cleanJSON(v) });
-      }
+    // If there's only one key, remove the inner key and create an array
+    if (keys.length === 1) {
+      const innerArray = cleanJSON(val[keys[0]]);
+      return Array.isArray(innerArray) ? innerArray : [innerArray];
     }
+
+    let obj = {};
+    for (const [k, v] of Object.entries(val)) {
+      obj[k] = cleanJSON(v);
+    }
+    return obj;
   }
-  return obj;
 };
+
+// const cleanJSON = (val) => {
+//   let obj = {};
+//   if (typeof val === "string" || typeof val === "number") return val;
+
+//   if (typeof val === "object") {
+//     console.log(
+//       "VAL ",
+//       Object.keys(val),
+//       "v ",
+//       Object.keys(val).length
+//     );
+//     for (const [k, v] of Object.entries(val)) {
+//       //check where the v is an array
+//       if (Array.isArray(v)) {
+//         let list = [];
+//         let itemObj = {};
+//         console.log("v ", k)
+//         for (const item of v) {
+//           for (const [kk, vv] of Object.entries(item)) {
+//             Object.assign(itemObj, { [kk]: cleanJSON(vv) });
+//           }
+//           list.push(itemObj);
+//         }
+
+//         Object.assign(obj, { [k]: list });
+//       } else {
+//         Object.assign(obj, { [k]: cleanJSON(v) });
+//       }
+//     }
+//   }
+//   return obj;
+// };
 
 const writeToFile = (filename, data) => {
   fs.writeFileSync(filename, data, { encoding: "utf-8" });
@@ -96,5 +128,5 @@ const readFromFile = (filename) => {
 
 // calling createJson()
 
-createJson();
+// createJson();
 refineJson();
