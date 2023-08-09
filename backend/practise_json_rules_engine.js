@@ -97,7 +97,7 @@ async function start() {
     event: {
       type: "getting-dynamic-todo-details",
       params: {
-        msg: "Todo found",
+        msg: "Todo found first one".bgYellow.black.bold,
       },
     },
     onFailure: (evt, almanac) => {
@@ -108,6 +108,53 @@ async function start() {
   //setting the rule
   engine.addRule(todoRule);
 
+  // user rule
+  const todoOwnerRule = new jsRules.Rule({
+    conditions: {
+      all: [
+        {
+          fact: "todoOwner",
+          operator: "equal",
+          value: "Leanne Graham",
+          params: {
+            userId: 1,
+          },
+          path: "$.name",
+        },
+        {
+          fact: "todoOwner",
+          operator: "equal",
+          value: "Bret",
+          params: {
+            userId: 1,
+          },
+          path: "$.username",
+        },
+      ],
+    },
+    event: {
+      type: "get the todo owner",
+      params: {
+        msg: "The todo user matches this provided user".bgYellow.black.bold,
+      },
+    },
+    onFailure: (evt, almanac) => {
+      console.log(
+        "The todo user DOESN'T match this provided user".bgRed.blue.bold
+      );
+    },
+  });
+
+  engine.addRule(todoOwnerRule);
+
+  // adding event listeners
+  engine.on('success', (evt) => {
+    console.log("event type success " + evt.type)
+  })
+
+  engine.on('failure', (evt) => {
+    console.log("event type failure " + evt.type)
+  })
   /**
    * Define a 'displayMessage' as a constant value
    * Fact values do NOT need to be known at engine runtime; see the
@@ -131,14 +178,25 @@ async function start() {
   //     personalFoulCount: 6,
   //   };
 
-  //todo dynamic fact
+  //todo dynamic fact one
   engine.addFact("todoDetails", async (params, almanac) => {
     return almanac.factValue("todoId").then(async (todoId) => {
-    let res = await axios.get(
-      `https://jsonplaceholder.typicode.com/todos/${todoId}`
-    );
-    // console.log("par.todoId", par.todoId);
-    return res.data;
+      let res = await axios.get(
+        `https://jsonplaceholder.typicode.com/todos/${todoId}`
+      );
+      // console.log("par.todoId", par.todoId);
+      return res.data;
+    });
+  });
+
+  //todo dynamic fact two
+  engine.addFact("todoOwner", async (params, almanac) => {
+    return almanac.factValue("todoDetails").then(async (todo) => {
+      let res = await axios.get(
+        `https://jsonplaceholder.typicode.com/users/${todo.userId}`
+      );
+      console.log("par.todoId", params.userId, "userId ", todo.userId);
+      return res.data;
     });
   });
 
