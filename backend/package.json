@@ -23,6 +23,7 @@
     "puppeteer": "^20.9.0",
     "puppeteer-core": "^20.9.0",
     "supertest": "^6.3.3",
+    "uuid": "^9.0.0",
     "xml2js": "^0.6.2"
   },
   "devDependencies": {
